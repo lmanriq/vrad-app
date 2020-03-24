@@ -3,12 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 class LoginForm extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       name: '', 
       email: '',
-      purpose: 'choose a purpose'
+      purpose: ''
     }
   }
 
@@ -17,9 +17,12 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const { name, email, purpose } = this.state;
+    const isDisabled = !(name && email && purpose);
+
     return (
-      <form> 
-        <label for="name">Name: 
+      <form onSubmit={() => false}> 
+        <label htmlFor="name">Name: 
           <input 
             id="name"
             name="name"
@@ -29,19 +32,23 @@ class LoginForm extends React.Component {
             onChange={(e) => {this.updateState(e)}}
           />
         </label>
-        <label for="email">Email: 
+        <label htmlFor="email">Email: 
           <input 
             id="email"
             name="email"
-            type="text"
+            type="email"
             value={this.state.email}
             placeholder="email@email.com"
             onChange={(e) => {this.updateState(e)}}
           />
         </label>
-        <label for="purpose">Purpose: 
-          <select id="purpose" name="purpose">
-            <option value="choose a purpose" selected="true" disabled="disabled">Choose a Purpose</option>
+        <label htmlFor="purpose">Purpose: 
+          <select 
+            id="purpose" 
+            name="purpose"
+            onChange={(e) => {this.updateState(e)}}
+            defaultValue="choose a purpose">
+            <option value="choose a purpose" disabled="disabled">Choose a Purpose</option>
             <option value="business">Business</option>
             <option value="vacation">Vacation</option>
             <option value="fleeing">Fleeing Disaster</option>
@@ -49,7 +56,7 @@ class LoginForm extends React.Component {
           </select>
         </label>
         <Link to='/neighborhoods'>
-          <button>log in</button>
+          <button type="button" onClick={() => {this.props.updateUser(this.state)}} disabled={isDisabled}>log in</button>
         </Link>
       </form>
     )
