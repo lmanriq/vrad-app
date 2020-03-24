@@ -1,15 +1,13 @@
 import React from 'react';
 import './LandingPage.css';
-import { Link } from 'react-router-dom'
+import LoginForm from '../LoginForm/LoginForm.js'
 
 function LandingPage(props) {
-  // form component will need props.updateUser
   return (
     <div>
-      <h1>Landing Page</h1>
-      <Link to='/neighborhoods'>
-        <button>log in</button>
-      </Link>
+      <h1>Welcome to VRAD</h1>
+      <LoginForm 
+        updateUser = {props.updateUser}/>
     </div>
   )
 }
