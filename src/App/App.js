@@ -26,7 +26,9 @@ class App extends React.Component {
     }
   }
 
-  //updateUser = () => {} updates the currentUser {} in app.state
+  updateUser = (user) => {
+    this.setState({currentUser: user});
+  }
 
   render() {
     return (
@@ -36,7 +38,11 @@ class App extends React.Component {
             <Route path="/neighborhoods" component={NeighborhoodsPage}/>
             <Route path="/listings/:id" component={ListingsPage}/>
             <Route path="/listings" exact component={ListingsPage}/>
-            <Route path="/" exact component={() => <LandingPage />}/>
+            <Route path="/" 
+              exact component={() => 
+                <LandingPage 
+                  updateUser = {this.updateUser}/>}
+            />
           </Switch>
         </div>
       </Router>
