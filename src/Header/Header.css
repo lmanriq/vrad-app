@@ -1,0 +1,26 @@
+header,
+.welcome-details, 
+.avatar-section,
+.user-info {
+  display: flex;
+}
+
+header {
+  height: 20%;
+  width: 100%;
+  background-color: #309966;
+  justify-content: space-between;
+}
+
+.welcome-details,
+.avatar-section {
+  flex-direction: column;
+}
+
+.small-logo {
+  width: 3em;
+}
+
+.avatar-photo {
+  height: 80%;
+}
