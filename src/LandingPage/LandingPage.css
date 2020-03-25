@@ -1,0 +1,30 @@
+/* White: #FFFFFF;
+Magic Mint: #9BF2C8;
+Illuminating Emerald: #309966;
+Cadmium Green: #0D663B;
+Dark Green: #003019; */
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  color: #003019;
+}
+
+.landing-page h1 {
+  margin: 2%;
+  font-size: 3rem;
+}
+
+.icon-landing {
+  width: 15rem;
+}
+
+.container-landing {
+  height: 60%;
+  width: 40%;
+  padding: 2%;
+  background-color: #9BF2C8;
+  border-radius: 30px;
+}
