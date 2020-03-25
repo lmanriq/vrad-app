@@ -1,0 +1,46 @@
+/* White: #FFFFFF;
+Magic Mint: #9BF2C8;
+Illuminating Emerald: #309966;
+Cadmium Green: #0D663B;
+Dark Green: #003019; */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2% 25%;
+  width: 55%;
+  height: 30%;
+  background-color: #309966;
+  border-radius: inherit;
+}
+
+.login-form input {
+  margin-left: 3%;
+  font-size: 1rem;
+  background: #9BF2C8;
+  padding: 1%;
+  border-radius: 30px;
+}
+
+.login-form input::placeholder {
+  color: #003019;
+}
+
+.login-form label {
+  width: 100%;
+  font-size: 1.2rem
+}
+
+.login-form button {
+  width: 40%;
+  padding: 1%;
+  font-size: 1.2rem;
+  color: #003019;
+  background: #9BF2C8;
+  border-radius: 30px;
+}
+
+.login-form a {
+  width: 100%;
+}

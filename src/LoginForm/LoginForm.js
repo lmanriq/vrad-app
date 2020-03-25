@@ -1,12 +1,13 @@
 // class component to hold onto form inputs
 import React from 'react';
 import { Link } from 'react-router-dom'
+import './LoginForm.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      name: '', 
+      name: '',
       email: '',
       purpose: ''
     }
@@ -21,9 +22,9 @@ class LoginForm extends React.Component {
     const isDisabled = !(name && email && purpose);
 
     return (
-      <form onSubmit={() => false}> 
-        <label htmlFor="name">Name: 
-          <input 
+      <form className='login-form' onSubmit={() => false}>
+        <label htmlFor="name">Name:
+          <input
             id="name"
             name="name"
             type="text"
@@ -32,8 +33,8 @@ class LoginForm extends React.Component {
             onChange={(e) => {this.updateState(e)}}
           />
         </label>
-        <label htmlFor="email">Email: 
-          <input 
+        <label htmlFor="email">Email:
+          <input
             id="email"
             name="email"
             type="email"
@@ -42,9 +43,9 @@ class LoginForm extends React.Component {
             onChange={(e) => {this.updateState(e)}}
           />
         </label>
-        <label htmlFor="purpose">Purpose: 
-          <select 
-            id="purpose" 
+        <label htmlFor="purpose">Purpose:
+          <select
+            id="purpose"
             name="purpose"
             onChange={(e) => {this.updateState(e)}}
             defaultValue="choose a purpose">
@@ -61,7 +62,7 @@ class LoginForm extends React.Component {
       </form>
     )
   }
-  
+
 }
 
 export default LoginForm;
