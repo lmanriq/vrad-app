@@ -9,7 +9,8 @@ html,
 body,
 #root,
 .App,
-main {
+main,
+.main-page {
   width: 100%;
   height: 100%;
 }
@@ -19,8 +20,35 @@ code {
     monospace;
 }
 
-main {
+.main-page {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 1rem;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  grid-template-areas: 
+    "header header header header"
+    "nav container container container"
+    "nav container container container"
+    "nav container container container";
 }
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+nav, 
+header {
+  box-shadow: 0.2em 0.2em 0.5em #003019;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+
