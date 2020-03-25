@@ -4,9 +4,10 @@
 import React from 'react';
 import './NeighborhoodsPage.css';
 import Nav from './../Nav/Nav.js'
+import Header from './../Header/Header.js'
 
 class NeighborhoodsPage extends React.Component {
-  constructor() {
+  constructor(props) {
     super()
     this.state = {
 
@@ -15,10 +16,13 @@ class NeighborhoodsPage extends React.Component {
 
   render() {
     return (
-      <main>
+      <section className="main-page">
+        <Header currentUser = {this.props.currentUser}/>
         <Nav />
-        <h1>Neighborhoods Page</h1>
-      </main>
+        <section className="container">
+          <p>neighborhoods</p>
+        </section>
+      </section>
     )
   }
 }

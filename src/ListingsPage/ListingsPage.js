@@ -6,10 +6,11 @@
 import React from 'react';
 import './ListingsPage.css';
 import Nav from './../Nav/Nav.js'
+import Header from './../Header/Header.js'
 
 class ListingsPage extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
 
     }
@@ -17,10 +18,13 @@ class ListingsPage extends React.Component {
 
   render() {
     return (
-      <main>
+      <section className="main-page">
+        <Header currentUser = {this.props.currentUser}/>
         <Nav />
-        <h1>Listings Page</h1>
-      </main>
+        <section className="container">
+          <p>listings</p>
+        </section>
+      </section>
     )
   }
 }
