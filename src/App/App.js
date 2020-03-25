@@ -14,8 +14,6 @@ class App extends React.Component {
   // http://localhost:3001/api/v1/areas
   // http://localhost:3001/api/v1/areas/:id
   // http://localhost:3001/api/v1/listings/:id
-
-  // const BASE = 'http://localhost:3001/api/v1/'
   // const AREAS = 'areas'
 
   // fetch(BASE + AREAS + AREA_ID)
@@ -34,6 +32,19 @@ class App extends React.Component {
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/areas')
       .then(response => response.json())
+      .then(data => {
+        const promises = data.areas.map(area => {
+          return fetch('http://localhost:3001' + area.details)
+            .then(response => response.json())
+            .then(data => {
+              return {
+                areaNickname: area.area,
+                ...data
+              }
+            })
+        })
+        return Promise.all(promises)
+      })
       .then(data => this.setState({areas: data}))
       .catch(err => console.error(err))
   }
