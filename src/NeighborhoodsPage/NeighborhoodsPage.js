@@ -8,7 +8,7 @@ import Header from './../Header/Header.js'
 
 class NeighborhoodsPage extends React.Component {
   constructor(props) {
-    super()
+    super(props)
     this.state = {
 
     }
