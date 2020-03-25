@@ -26,8 +26,16 @@ class App extends React.Component {
         name: null, 
         email: null,
         purpose: null
-      }
+      },
+      areas: []
     }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/areas')
+      .then(response => response.json())
+      .then(data => this.setState({areas: data}))
+      .catch(err => console.error(err))
   }
 
   updateUser = (user) => {
@@ -41,7 +49,9 @@ class App extends React.Component {
           <Switch>
             <Route path="/neighborhoods" component={() => {
                 return <NeighborhoodsPage 
-                  currentUser = {this.state.currentUser}/>
+                  currentUser = {this.state.currentUser}
+                  areas = {this.state.areas}
+                />
               }
             }/>
             <Route path="/listings/:id" component={ListingDetails}/>
