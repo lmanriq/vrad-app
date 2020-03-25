@@ -10,15 +10,15 @@ const Nav = () => {
   // }
   return (
     <nav>
-      <h3>Logo</h3>
-      <ul className="nav-links">
-        <Link to='/neighborhoods'>
-          <li>Neighborhoods</li>
+      <h3>Blucifinder</h3>
+      <section className="nav-links">
+        <Link style={{ textDecoration: 'none' }} to='/neighborhoods'>
+          <button>Neighborhoods</button>
         </Link>
-        <Link to='/listings'>
-          <li>Listings</li>
+        <Link style={{ textDecoration: 'none' }} to='/listings'>
+          <button>Listings</button>
         </Link>
-      </ul>
+      </section>
     </nav>
   )
 }
