@@ -26,6 +26,7 @@ class NeighborhoodsPage extends React.Component {
         key = {area.id}
         location = {area.location}
         description = {area.about}
+        listings = {area.listings}
       />
     })
     
@@ -33,7 +34,7 @@ class NeighborhoodsPage extends React.Component {
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
         <Nav />
-        <section className="container">
+        <section className="container neighborhood-container">
           {areaCards}
         </section>
       </section>
