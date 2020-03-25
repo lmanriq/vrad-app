@@ -6,13 +6,14 @@ import './NeighborhoodCard.css';
 // card render: const checked = isFavorite, render checkbox as checked
 
 const NeighborhoodCard = (props) => {
-  console.log(props)
+  console.log(props.listings)
   return (
     <article id={props.id} className="card neighborhood-card">
       <h4>{props.areaNickname}</h4>
-      <p>{props.name}</p>
-      <p>{props.location}</p>
+      <p>({props.name})</p>
+      <h5>{props.location}</h5>
       <p>{props.description}</p>
+      <button>View Listings</button>
     </article>
   )
 }
