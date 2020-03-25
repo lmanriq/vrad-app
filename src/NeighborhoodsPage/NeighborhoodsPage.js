@@ -16,11 +16,13 @@ class NeighborhoodsPage extends React.Component {
 
   render() {
     return (
-      <main>
+      <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
         <Nav />
-        <h1>Neighborhoods Page</h1>
-      </main>
+        <section className="container">
+          <p>neighborhoods</p>
+        </section>
+      </section>
     )
   }
 }
