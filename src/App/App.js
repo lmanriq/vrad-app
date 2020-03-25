@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import LandingPage from './../LandingPage/LandingPage.js'
 import NeighborhoodsPage from './../NeighborhoodsPage/NeighborhoodsPage.js'
 import ListingsPage from './../ListingsPage/ListingsPage.js'
-
+import ListingDetails from './../ListingsPage/ListingsPage.js'
 
 // class component
 
@@ -22,7 +22,11 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      currentUser: null
+      currentUser: {
+        name: null, 
+        email: null,
+        purpose: null
+      }
     }
   }
 
@@ -35,9 +39,17 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/neighborhoods" component={NeighborhoodsPage}/>
-            <Route path="/listings/:id" component={ListingsPage}/>
-            <Route path="/listings" exact component={ListingsPage}/>
+            <Route path="/neighborhoods" component={() => {
+                return <NeighborhoodsPage 
+                  currentUser = {this.state.currentUser}/>
+              }
+            }/>
+            <Route path="/listings/:id" component={ListingDetails}/>
+            <Route path="/listings" exact component={() => {
+                return <ListingsPage 
+                  currentUser = {this.state.currentUser}/>
+              }
+            }/>
             <Route path="/" 
               exact component={() => 
                 <LandingPage 
