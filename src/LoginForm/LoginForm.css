@@ -8,13 +8,14 @@ Dark Green: #003019; */
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 2% 25%;
-  width: 55%;
-  height: 30%;
+  margin: 2% 15%;
+  width: 70%;
+  height: 40%;
   background-color: #309966;
-  border-radius: inherit;
+  border-radius: 30px;
 }
 
+.login-form select,
 .login-form input {
   margin-left: 3%;
   font-size: 1rem;
@@ -43,4 +44,12 @@ Dark Green: #003019; */
 
 .login-form a {
   width: 100%;
+}
+
+@media only screen and (max-width: 525px) {
+  .login-form {
+    width: 80%;
+    height: 35%;
+    margin: 2% 10%;
+  }
 }
