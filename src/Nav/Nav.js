@@ -18,9 +18,6 @@ const Nav = () => {
         <Link to='/listings'>
           <li>Listings</li>
         </Link>
-        <Link to='/'>
-          <li>Log Out</li>
-        </Link>
       </ul>
     </nav>
   )
