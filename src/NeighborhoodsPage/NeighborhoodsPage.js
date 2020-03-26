@@ -5,21 +5,40 @@ import React from 'react';
 import './NeighborhoodsPage.css';
 import Nav from './../Nav/Nav.js'
 import Header from './../Header/Header.js'
-import Card from '../NeighborhoodCard/NeighborhoodCard.js'
+import NeighborhoodCard from '../NeighborhoodCard/NeighborhoodCard.js'
 
 
 class NeighborhoodsPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      areas: []
     }
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/areas')
+      .then(response => response.json())
+      .then(data => {
+        const promises = data.areas.map(area => {
+          return fetch('http://localhost:3001' + area.details)
+            .then(response => response.json())
+            .then(data => {
+              return {
+                areaNickname: area.area,
+                ...data
+              }
+            })
+        })
+        return Promise.all(promises)
+      })
+      .then(data => this.setState({areas: data}))
+      .catch(err => console.error(err))
+  }
+
   render() {
-    console.log(this.props.areas)
-    const areaCards = this.props.areas.map(area => {
-      return <Card 
+    const areaCards = this.state.areas.map(area => {
+      return <NeighborhoodCard 
         areaNickname = {area.areaNickname}
         name = {area.name}
         id = {area.id}

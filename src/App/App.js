@@ -24,30 +24,13 @@ class App extends React.Component {
         name: null, 
         email: null,
         purpose: null
-      },
-      areas: []
+      }
     }
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3001/api/v1/areas')
-      .then(response => response.json())
-      .then(data => {
-        const promises = data.areas.map(area => {
-          return fetch('http://localhost:3001' + area.details)
-            .then(response => response.json())
-            .then(data => {
-              return {
-                areaNickname: area.area,
-                ...data
-              }
-            })
-        })
-        return Promise.all(promises)
-      })
-      .then(data => this.setState({areas: data}))
-      .catch(err => console.error(err))
-  }
+  // getListingsData() {
+  //   fetch
+  // }
 
   updateUser = (user) => {
     this.setState({currentUser: user});
@@ -58,21 +41,41 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/neighborhoods" component={() => {
+            <Route 
+              path="/neighborhoods/:id/listings"
+              component={(routerProps) => {
+                const { match } = routerProps;
+                const { params } = match; 
+                return <ListingsPage 
+                  currentUser = {this.state.currentUser}
+                  {...params}
+                />
+               }
+              }
+            />
+            <Route 
+              path="/neighborhoods" exact 
+              component={() => {
                 return <NeighborhoodsPage 
                   currentUser = {this.state.currentUser}
                   areas = {this.state.areas}
                 />
               }
             }/>
-            <Route path="/listings/:id" component={ListingDetails}/>
-            <Route path="/listings" exact component={() => {
+            <Route 
+              path="/listings/:id" 
+              component={ListingDetails}
+            />
+            <Route 
+              path="/listings" exact 
+              component={() => {
                 return <ListingsPage 
                   currentUser = {this.state.currentUser}/>
               }
             }/>
-            <Route path="/" 
-              exact component={() => 
+            <Route 
+              path="/" exact 
+              component={() => 
                 <LandingPage 
                   updateUser = {this.updateUser}/>}
             />
@@ -83,27 +86,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-// render () {
-//   return (
-//     <Header />
-//     <Nav />
-//     <main>
-//       {neighborhoodCards}
-//     </main>
-//   )
-// }
-//
-//
-// const Listings = () => {}
-// render () {
-//   return (
-//     <Header />
-//     <Nav />
-//     <main>
-//       {listingCards}
-//     </main>
-//   )
-// }
