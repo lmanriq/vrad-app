@@ -32,18 +32,18 @@ class ListingsPage extends React.Component {
 
   fetchAreaListings = () => {
     let { id } = this.props
-    return fetch(`http://localhost:3001/api/v1/areas/${id}`)
-            .then(res => res.json())
-            .then(data => data.listings)
-            .then(listings => {const promises = listings.map(listing => {
-              return fetch('http://localhost:3001' + listing)
-                      .then(res => res.json())
-                      // .then(data => data)
-                })
-                return Promise.all(promises)
-              })
-            .then(data => this.setState({listings: [...data]}))
-            .catch(err => console.log(err.message))
+    fetch(`http://localhost:3001/api/v1/areas/${id}`)
+      .then(res => res.json())
+      .then(data => data.listings)
+      .then(listings => {const promises = listings.map(listing => {
+        return fetch('http://localhost:3001' + listing)
+                .then(res => res.json())
+                // .then(data => data)
+          })
+          return Promise.all(promises)
+        })
+      .then(data => this.setState({listings: [...data]}))
+      .catch(err => console.log(err.message))
   }
 
   handleFavorites = (id) => {
@@ -80,11 +80,7 @@ class ListingsPage extends React.Component {
               id = {listing.listing_id}
               name = {listing.name}
               key = {listing.listing_id}
-              details = {listing.details}
-              address = {listing.address}
-              area = {listing.area}
               isFavorite = {favListings.includes(listing.listing_id)}
-              handleFavorites = {this.handleFavorites}
             />
           )}
         </section>
