@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import LandingPage from './../LandingPage/LandingPage.js'
 import NeighborhoodsPage from './../NeighborhoodsPage/NeighborhoodsPage.js'
 import ListingsPage from './../ListingsPage/ListingsPage.js'
-import ListingDetails from './../ListingsPage/ListingsPage.js'
+import ListingDetails from '../ListingDetails/ListingDetails.js'
+
 
 // class component
 
@@ -21,7 +22,7 @@ class App extends React.Component {
     super()
     this.state = {
       currentUser: {
-        name: null, 
+        name: null,
         email: null,
         purpose: null
       }
@@ -41,42 +42,47 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route 
+            <Route
               path="/neighborhoods/:id/listings"
-              component={(routerProps) => {
-                const { match } = routerProps;
-                const { params } = match; 
-                return <ListingsPage 
+              component={({ match }) => {
+                const { params } = match;
+                return <ListingsPage
                   currentUser = {this.state.currentUser}
                   {...params}
                 />
                }
               }
             />
-            <Route 
-              path="/neighborhoods" exact 
+            <Route
+              path="/neighborhoods" exact
               component={() => {
-                return <NeighborhoodsPage 
+                return <NeighborhoodsPage
                   currentUser = {this.state.currentUser}
                   areas = {this.state.areas}
                 />
               }
             }/>
-            <Route 
-              path="/listings/:id" 
-              component={ListingDetails}
+            <Route
+              path="/listings/:id"
+              component={({ match }) => {
+              const { params } = match;
+              return (<ListingDetails
+                  currentUser = {this.state.currentUser}
+                  {...params}
+                />)
+              }}
             />
-            <Route 
-              path="/listings" exact 
+            <Route
+              path="/listings" exact
               component={() => {
-                return <ListingsPage 
+                return <ListingsPage
                   currentUser = {this.state.currentUser}/>
               }
             }/>
-            <Route 
-              path="/" exact 
-              component={() => 
-                <LandingPage 
+            <Route
+              path="/" exact
+              component={() =>
+                <LandingPage
                   updateUser = {this.updateUser}/>}
             />
           </Switch>

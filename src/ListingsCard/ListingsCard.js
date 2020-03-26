@@ -4,28 +4,16 @@
 
 import React from 'react';
 import './ListingsCard.css';
+import { Link } from 'react-router-dom'
 
-function ListingsCard({ id, name, address, details, isFavorite, handleFavorites }) {
-  const {beds, baths, cost_per_night, features} = details
-  function makeKey() {
-    return Math.trunc((Math.random() * 1000) * (Math.random() * 1000))
-  }
+function ListingsCard({ id, name, isFavorite }) {
   return (
     <section className='listings-card card'>
       <h3>{ name }</h3>
-      <h4>Street:{address.street} Zip: {address.zip}</h4>
-      <ul>
-        <li>Beds: {beds}</li>
-        <li>Baths: {baths}</li>
-        <li>Cost Per Night: {cost_per_night}</li>
-        <li>
-          <ul>Features:
-            {features.map(feature => (<li key={makeKey()}>{feature}</li>))}
-          </ul>
-        </li>
-      </ul>
       <label className='favorite-label'>
-        <input onChange={(e) => {handleFavorites(parseInt(e.target.value))}} type="checkbox" name="favorite" defaultChecked={isFavorite} value={id}/>
+        <Link to={`/listings/${id}`} >
+          <button type='button'>View Details</button>
+        </Link>
       </label>
     </section>
   )
