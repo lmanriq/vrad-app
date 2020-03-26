@@ -35,8 +35,8 @@ class ListingsPage extends React.Component {
 
   removeFromFavorites = (id) => {
     const { favListings } = this.state
-    const updatedListings = favListings.filter(listing => listing.listing_id !== id)
-    this.setState({favListings: [updatedListings]})
+    const updatedListings = favListings.filter(listing => listing !== id)
+    this.setState({favListings: [...updatedListings]})
   }
 
   addToFavorites = (id) => {
