@@ -5,7 +5,7 @@
 import React from 'react';
 import './ListingsCard.css';
 
-function ListingsCard({ id, name, address, details }) {
+function ListingsCard({ id, name, address, details, isFavorite, handleFavorites }) {
   const {beds, baths, cost_per_night, features} = details
   function makeKey() {
     return Math.trunc((Math.random() * 1000) * (Math.random() * 1000))
@@ -24,6 +24,9 @@ function ListingsCard({ id, name, address, details }) {
           </ul>
         </li>
       </ul>
+      <label className='favorite-label'>
+        <input onClick={(e) => {handleFavorites(e.target.value)}} type="checkbox" name="favorite" checked={isFavorite} value={id}>
+      </label>
     </section>
   )
 }
