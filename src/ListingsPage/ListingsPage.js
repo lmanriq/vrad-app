@@ -6,7 +6,7 @@
 import React from 'react';
 import './ListingsPage.css';
 import Nav from './../Nav/Nav.js'
-import ListingsCard from './../ListingsCard/ListingsCard.js'
+import Card from './../ListingsCard/ListingsCard.js'
 import Header from './../Header/Header.js'
 
 class ListingsPage extends React.Component {
@@ -32,7 +32,16 @@ class ListingsPage extends React.Component {
         <Header currentUser = {this.props.currentUser}/>
         <Nav />
         <section className="container">
-          <p>listings</p>
+          {listings.map(listing =>
+            <Card
+              id = {listing.listing_id}
+              name = {listing.name}
+              key = {listing.listing_id}
+              details = {listing.details}
+              address = {listing.address}
+              area = {listing.area}
+            />
+          )}
         </section>
       </section>
     )
