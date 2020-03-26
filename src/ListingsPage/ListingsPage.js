@@ -19,7 +19,9 @@ class ListingsPage extends React.Component {
 
   componentDidMount() {
     const { listings } = this.state
-    fetch('http://localhost:3001/api/v1/listings')
+    const { url } = this.props
+    const defaultUrl = 'http://localhost:3001/api/v1/listings'
+    fetch(url || defaultUrl)
       .then(res => res.json())
       .then(data => this.setState({listings: [...listings, ...data.listings]}))
       .catch(err => console.log(err.message))
