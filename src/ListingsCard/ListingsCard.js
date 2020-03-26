@@ -25,7 +25,7 @@ function ListingsCard({ id, name, address, details, isFavorite, handleFavorites 
         </li>
       </ul>
       <label className='favorite-label'>
-        <input onChange={(e) => {handleFavorites(e.target.value)}} type="checkbox" name="favorite" defaultChecked={isFavorite} value={id}/>
+        <input onChange={(e) => {handleFavorites(parseInt(e.target.value))}} type="checkbox" name="favorite" defaultChecked={isFavorite} value={id}/>
       </label>
     </section>
   )
