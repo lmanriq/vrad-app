@@ -6,7 +6,7 @@
 import React from 'react';
 import './ListingsPage.css';
 import Nav from './../Nav/Nav.js'
-import Card from './../ListingsCard/ListingsCard.js'
+import ListingsCard from './../ListingsCard/ListingsCard.js'
 import Header from './../Header/Header.js'
 
 class ListingsPage extends React.Component {
@@ -18,14 +18,32 @@ class ListingsPage extends React.Component {
     }
   }
 
-  componentDidMount() {
+  fetchAllListings = () => {
     const { listings } = this.state
-    const { url } = this.props
-    const defaultUrl = 'http://localhost:3001/api/v1/listings'
-    fetch(url || defaultUrl)
+    fetch('http://localhost:3001/api/v1/listings')
       .then(res => res.json())
       .then(data => this.setState({listings: [...listings, ...data.listings]}))
       .catch(err => console.log(err.message))
+  }
+
+  componentDidMount() {
+    this.props.id ? this.fetchAreaListings() : this.fetchAllListings()
+  }
+
+  fetchAreaListings = () => {
+    let { id } = this.props
+    return fetch(`http://localhost:3001/api/v1/areas/${id}`)
+            .then(res => res.json())
+            .then(data => data.listings)
+            .then(listings => {const promises = listings.map(listing => {
+              return fetch('http://localhost:3001' + listing)
+                      .then(res => res.json())
+                      // .then(data => data)
+                })
+                return Promise.all(promises)
+              })
+            .then(data => this.setState({listings: [...data]}))
+            .catch(err => console.log(err.message))
   }
 
   handleFavorites = (id) => {
@@ -52,15 +70,13 @@ class ListingsPage extends React.Component {
   // this.props.listings.map()
   // return the promises
   // Promise.all
-  
-    console.log(this.props)
     return (
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
         <Nav />
         <section className="container">
           {listings.map(listing =>
-            <Card
+            <ListingsCard
               id = {listing.listing_id}
               name = {listing.name}
               key = {listing.listing_id}
