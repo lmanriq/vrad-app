@@ -14,8 +14,6 @@ class App extends React.Component {
   // http://localhost:3001/api/v1/areas
   // http://localhost:3001/api/v1/areas/:id
   // http://localhost:3001/api/v1/listings/:id
-
-  // const BASE = 'http://localhost:3001/api/v1/'
   // const AREAS = 'areas'
 
   // fetch(BASE + AREAS + AREA_ID)
@@ -30,6 +28,10 @@ class App extends React.Component {
     }
   }
 
+  // getListingsData() {
+  //   fetch
+  // }
+
   updateUser = (user) => {
     this.setState({currentUser: user});
   }
@@ -39,19 +41,41 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/neighborhoods" component={() => {
+            <Route 
+              path="/neighborhoods/:id/listings"
+              component={(routerProps) => {
+                const { match } = routerProps;
+                const { params } = match; 
+                return <ListingsPage 
+                  currentUser = {this.state.currentUser}
+                  {...params}
+                />
+               }
+              }
+            />
+            <Route 
+              path="/neighborhoods" exact 
+              component={() => {
                 return <NeighborhoodsPage 
-                  currentUser = {this.state.currentUser}/>
+                  currentUser = {this.state.currentUser}
+                  areas = {this.state.areas}
+                />
               }
             }/>
-            <Route path="/listings/:id" component={ListingDetails}/>
-            <Route path="/listings" exact component={() => {
+            <Route 
+              path="/listings/:id" 
+              component={ListingDetails}
+            />
+            <Route 
+              path="/listings" exact 
+              component={() => {
                 return <ListingsPage 
                   currentUser = {this.state.currentUser}/>
               }
             }/>
-            <Route path="/" 
-              exact component={() => 
+            <Route 
+              path="/" exact 
+              component={() => 
                 <LandingPage 
                   updateUser = {this.updateUser}/>}
             />
@@ -62,27 +86,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-// render () {
-//   return (
-//     <Header />
-//     <Nav />
-//     <main>
-//       {neighborhoodCards}
-//     </main>
-//   )
-// }
-//
-//
-// const Listings = () => {}
-// render () {
-//   return (
-//     <Header />
-//     <Nav />
-//     <main>
-//       {listingCards}
-//     </main>
-//   )
-// }

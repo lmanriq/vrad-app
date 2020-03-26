@@ -16,7 +16,15 @@ class ListingsPage extends React.Component {
     }
   }
 
+  //if you click on this from the main page, listings is all listings, otherwise 
+  // const fetchUrl = 
+  // componentDid
+  // this.props.listings.map()
+  // return the promises
+  // Promise.all
+
   render() {
+    console.log(this.props)
     return (
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
