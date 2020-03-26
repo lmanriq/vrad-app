@@ -3,23 +3,11 @@ nav {
   display: flex; 
   flex-direction: column;
   align-items: center;
+  padding: 0.7em;
 }
 
 nav h3 {
   color: #002C90;
   font-size: 2em;
   margin: 0.5em 0;
-}
-
-nav button {
-  display: block;
-  text-align: center;
-  background-color: #309966;
-  border: none;
-  color: #ffffff;
-  font-size: 1em;
-  margin: 0.8em 0;
-  padding: 0.5em;
-  border-radius: 0.2em;
-  box-shadow: 0.2em 0.2em 0.5em;
 }

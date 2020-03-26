@@ -29,6 +29,7 @@ code {
     "nav container container container"
     "nav container container container"
     "nav container container container";
+  grid-auto-rows: 100px;
 }
 
 header {
@@ -49,6 +50,36 @@ h2,
 h3,
 p {
   font-family: 'Roboto', sans-serif;
+}
+
+nav button,
+.card button {
+  text-align: center;
+  background-color: #309966;
+  border: none;
+  color: #ffffff;
+  font-size: 1em;
+  margin: 0.8em 0;
+  padding: 0.5em;
+  border-radius: 0.2em;
+  box-shadow: 0.2em 0.2em 0.5em;
+}
+
+.container {
+  grid-area: container;
+  column-count: 4;
+  column-gap: 1em;
+  padding: 1em;
+}
+
+.card { 
+  background-color:rgba(155, 242, 200, 0.7);
+  border-radius: 3px;
+  border: 2px solid  #002C90;
+  padding: 1em;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
 }
 
 
