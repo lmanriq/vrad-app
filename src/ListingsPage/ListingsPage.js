@@ -14,6 +14,7 @@ class ListingsPage extends React.Component {
     super(props)
     this.state = {
       listings: [],
+      favListings:[]
     }
   }
 
@@ -27,8 +28,24 @@ class ListingsPage extends React.Component {
       .catch(err => console.log(err.message))
   }
 
+  handleFavorites = (id) => {
+    const { favListings } = this.state
+    favListings.includes(id) ? this.removeFromFavorites(id) : this.addToFavorites(id);
+  }
+
+  removeFromFavorites = (id) => {
+    const { favListings } = this.state
+    const updatedListings = favListings.filter(listing => listing.listing_id !== id)
+    this.setState({favListings: [updatedListings]})
+  }
+
+  addToFavorites = (id) => {
+    const { favListings } = this.state
+    this.setState({favListings: [...favListings, id]})
+  }
+
   render() {
-    const { listings } = this.state
+    const { listings, favListings } = this.state
     return (
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
@@ -42,6 +59,8 @@ class ListingsPage extends React.Component {
               details = {listing.details}
               address = {listing.address}
               area = {listing.area}
+              isFavorite = {favListings.includes(listing.listing_id)}
+              handleFavorites = {this.handleFavorites}
             />
           )}
         </section>
