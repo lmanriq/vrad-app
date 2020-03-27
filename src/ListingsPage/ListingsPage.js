@@ -74,7 +74,7 @@ class ListingsPage extends React.Component {
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
         <Nav />
-        <section className="container">
+        <section className="container listings-container">
           {listings.map(listing =>
             <ListingsCard
               id = {listing.listing_id}
