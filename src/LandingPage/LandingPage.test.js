@@ -21,6 +21,15 @@ describe('LandingPage', () => {
     expect(heading).toBeInTheDocument()
   })
 
+  it('Should Have its form', () => {
+  const { getByText } = renderLandingPage()
+    const emailField = getByText('Email:')
+    const nameField = getByText('Name:')
+    const purposeField = getByText('Purpose:')
+    expect(purposeField).toBeInTheDocument()
+    expect(nameField).toBeInTheDocument()
+    expect(emailField).toBeInTheDocument()
+  })
 
 
 })
