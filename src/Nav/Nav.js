@@ -2,12 +2,8 @@ import React from 'react';
 import './Nav.css';
 import { Link } from 'react-router-dom'
 
-// class component
 
 const Nav = () => {
-  // this.state = {
-  //   selectedLink = null;
-  // }
   return (
     <nav>
       <h3>Blucifinder</h3>
