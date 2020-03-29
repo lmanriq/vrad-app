@@ -26,7 +26,7 @@ class App extends React.Component {
         email: null,
         purpose: null,
       },
-      favListings:[3]
+      favListings:[]
     }
   }
 
