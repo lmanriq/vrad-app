@@ -1,7 +1,7 @@
 import React from 'react';
 import './LandingPage.css';
 import LoginForm from '../LoginForm/LoginForm.js'
-import { ReactComponent as Logo }  from '../logo.svg'
+import { ReactComponent as Logo }  from './../logo.svg'
 
 
 function LandingPage({ updateUser }) {
