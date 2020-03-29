@@ -11,6 +11,10 @@
   height: 20%;
 }
 
+.listing-details-container p {
+  margin-top: 0.5em;
+}
+
 .details-header h1 {
     padding: 1em 0 0.5em 0;
     font-size: 1.5em;
@@ -18,4 +22,17 @@
 
 .superhost img {
   height: 1em;
+}
+
+.listing-imgs {
+  display: flex;
+  overflow-x: scroll;
+  height: 50%;
+  margin: 1em;
+}
+
+.listing-imgs img {
+  height: 100%;
+  width: auto;
+  margin: 0 0.5em;
 }
