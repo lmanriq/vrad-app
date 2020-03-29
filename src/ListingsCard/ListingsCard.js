@@ -10,8 +10,8 @@ function ListingsCard({ id, name, isFavorite }) {
   const favorite = isFavorite ? ' favorite' : '';
   console.log(favorite);
   return (
-    <section className={'listings-card card' + favorite}>
-      <h3>{ name }</h3>
+    <section className='listings-card card'>
+      <h3 className={favorite}>{name}</h3>
       <label className='favorite-label'>
         <Link to={`/listings/${id}`} >
           <button type='button'>View Details</button>
