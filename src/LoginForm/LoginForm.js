@@ -14,6 +14,7 @@ class LoginForm extends React.Component {
   }
 
   updateState(e) {
+    console.log('ran', e.target.name);
     this.setState({[e.target.name]: e.target.value})
   }
 
@@ -57,7 +58,7 @@ class LoginForm extends React.Component {
           </select>
         </label>
         <Link to='/neighborhoods'>
-          <button type="button" onClick={() => {this.props.updateUser(this.state)}} disabled={isDisabled}>log in</button>
+          <button type="button" onClick={() => {this.props.updateUser(this.state)}} disabled={isDisabled}>Log In</button>
         </Link>
       </form>
     )
