@@ -36,8 +36,7 @@ class App extends React.Component {
   }
 
   handleFavorites = (id) => {
-    const { favListings } = this.state
-    favListings.includes(id) ? this.removeFromFavorites(id) : this.addToFavorites(id);
+    this.checkIsFavorite() ? this.removeFromFavorites(id) : this.addToFavorites(id);
   }
 
   removeFromFavorites = (id) => {
