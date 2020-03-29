@@ -9,7 +9,21 @@ class ListingDetails extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      listing: null
+      listing: {
+        name: null,
+        address: {
+          street: null,
+          zip: null
+        },
+        details: {
+          beds: null, 
+          baths: null,
+          superhost: null,
+          cost_per_night: null, 
+          features: []
+        },
+        area: null
+      }
     }
   }
 
@@ -21,12 +35,21 @@ class ListingDetails extends React.Component {
   }
 
   render(){
+    // console.log(this.state.listing)
+    const { name, address, details, area } = this.state.listing;
+
     return (
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
         <Nav />
         <section className="container listing-container">
-          <h1>Listing</h1>
+          <h1>{name}</h1>
+          <p>{address.street} Denver, CO {address.zip}</p>
+          {details.superhost && <p className="superhost">Superhost</p>}
+          <p>Cost Per Night: {details.cost_per_night}</p>
+          <p>Beds: {details.beds}</p>
+          <p>Baths: {details.baths}</p>
+          <p>Features: {details.features.join(', ')}</p>
         </section>
       </section>
     )
