@@ -1,0 +1,21 @@
+.listing-details-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #309966;
+  margin: 2em;
+  padding: 0;
+}
+
+.details-header {
+  background-color: #309966;
+  height: 20%;
+}
+
+.details-header h1 {
+    padding: 1em 0 0.5em 0;
+    font-size: 1.5em;
+}
+
+.superhost img {
+  height: 1em;
+}
