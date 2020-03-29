@@ -42,10 +42,12 @@ class ListingDetails extends React.Component {
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
         <Nav />
-        <section className="container listing-container">
-          <h1>{name}</h1>
-          <p>{address.street} Denver, CO {address.zip}</p>
-          {details.superhost && <p className="superhost">Superhost</p>}
+        <section className="container listing-details-container">
+          <section className="details-header">
+            <h1>{name}</h1>
+            <p>{address.street} Denver, CO {address.zip}</p>
+          </section>
+          {details.superhost && <p className="superhost"><img src="/images/thunder.svg" alt="lightning logo" />Superhost<img src="/images/thunder.svg" alt="lightning logo" /></p>}
           <p>Cost Per Night: {details.cost_per_night}</p>
           <p>Beds: {details.beds}</p>
           <p>Baths: {details.baths}</p>
