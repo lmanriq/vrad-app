@@ -24,14 +24,32 @@ class App extends React.Component {
       currentUser: {
         name: null,
         email: null,
-        purpose: null
-      }
+        purpose: null,
+      },
+      favListings:[3]
     }
   }
 
-  // getListingsData() {
-  //   fetch
-  // }
+  checkIsFavorite = (id) => {
+    const { favListings } = this.state
+    return favListings.includes(id)
+  }
+
+  handleFavorites = (id) => {
+    const { favListings } = this.state
+    favListings.includes(id) ? this.removeFromFavorites(id) : this.addToFavorites(id);
+  }
+
+  removeFromFavorites = (id) => {
+    const { favListings } = this.state
+    const updatedListings = favListings.filter(listing => listing !== id)
+    this.setState({favListings: [...updatedListings]})
+  }
+
+  addToFavorites = (id) => {
+    const { favListings } = this.state
+    this.setState({favListings: [...favListings, id]})
+  }
 
   updateUser = (user) => {
     this.setState({currentUser: user});
@@ -75,8 +93,10 @@ class App extends React.Component {
             <Route
               path="/listings" exact
               component={() => {
-                return <ListingsPage
-                  currentUser = {this.state.currentUser}/>
+                return (<ListingsPage
+                  currentUser = {this.state.currentUser}
+                  checkIsFavorite = {this.checkIsFavorite}
+                  />)
               }
             }/>
             <Route
