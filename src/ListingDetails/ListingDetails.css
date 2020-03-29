@@ -1,0 +1,47 @@
+.listing-details-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #309966;
+  margin: 2em;
+  padding: 0;
+}
+
+.details-header {
+  background-color: #309966;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.favorite-checkbox {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+}
+
+.listing-details-container p {
+  margin-top: 0.5em;
+}
+
+.details-header h1 {
+    padding: 1em 0 0.5em 0;
+    font-size: 1.5em;
+}
+
+.superhost img {
+  height: 1em;
+}
+
+.listing-imgs {
+  display: flex;
+  overflow-x: scroll;
+  height: 50%;
+  margin: 1em;
+}
+
+.listing-imgs img {
+  height: 100%;
+  width: auto;
+  margin: 0 0.5em;
+}
