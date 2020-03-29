@@ -45,8 +45,11 @@ class ListingDetails extends React.Component {
         <Nav />
         <section className="container listing-details-container">
           <section className="details-header">
-            <h1>{name}</h1>
-            <p>{address.street} Denver, CO {address.zip}</p>
+            <label className="favorite-checkbox"><input type="checkbox" defaultChecked={true}/></label>
+            <div>
+              <h1>{name}</h1>
+              <p>{address.street} Denver, CO {address.zip}</p>
+            </div> 
           </section>
           {details.superhost && <p className="superhost"><img src="/images/thunder.svg" alt="lightning logo" />Superhost<img src="/images/thunder.svg" alt="lightning logo" /></p>}
           <p>Cost Per Night: ${details.cost_per_night}</p>

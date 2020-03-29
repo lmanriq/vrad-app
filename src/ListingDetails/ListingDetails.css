@@ -9,6 +9,15 @@
 .details-header {
   background-color: #309966;
   height: 20%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.favorite-checkbox {
+  position: absolute;
+  top: 2em;
+  left: 2em;
 }
 
 .listing-details-container p {
