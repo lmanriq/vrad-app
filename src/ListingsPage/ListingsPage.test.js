@@ -24,6 +24,7 @@ describe ('Listings Page', () => {
       </BrowserRouter>
     )
     expect(getByTestId('listings-section')).toBeInTheDocument();
+    expect(getByText('3')).toBeInTheDocument();
     const sampleCard = await waitForElement(() => getByText('Hip RiNo Party Spot'))
     expect(sampleCard).toBeInTheDocument();
   })
