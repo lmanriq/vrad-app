@@ -36,6 +36,7 @@ describe ('Listing Details', () => {
     expect(beds).toBeInTheDocument();
     expect(baths).toBeInTheDocument();
     expect(features).toBeInTheDocument();
+    expect(getByText('5')).toBeInTheDocument();
   })
 
   it('can be favorites', async () => {

@@ -15,6 +15,7 @@ describe ('Neighborhoods Page', () => {
       <BrowserRouter>
         <NeighborhoodsPage
           currentUser = {currentUser}
+          favoritesLength = {7}
           areas = {sampleAreas.areas}
         />
       </BrowserRouter>
@@ -22,5 +23,6 @@ describe ('Neighborhoods Page', () => {
     expect(getByTestId('neighborhood-section')).toBeInTheDocument();
     const sampleCard = await waitFor(() => getByText('RiNo'))
     expect(sampleCard).toBeInTheDocument();
+    expect(getByText('7')).toBeInTheDocument();
   })
 })
