@@ -10,16 +10,14 @@ describe ('Listing Details', () => {
       name: 'Bob',
       purpose: 'business'
     }
-    const { getByText } = render(
+    const { getByText } = render (
       <BrowserRouter>
         <ListingDetails
           currentUser = {currentUser}
+          id = {3}
         />
       </BrowserRouter>
     )
-    expect(getByText('Welcome, Bob')).toBeInTheDocument();
-    expect(getByText(`We're here to help with all of your business needs`)).toBeInTheDocument();
-    expect(getByAltText('avatar')).toBeInTheDocument();
-    expect(getByText('Log Out')).toBeInTheDocument();
+    expect(getByText('Hip RiNo Party Spot')).toBeInTheDocument();
   })
 })
