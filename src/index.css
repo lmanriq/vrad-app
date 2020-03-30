@@ -24,7 +24,7 @@ code {
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr;
   grid-template-rows: 0.5fr 1fr 1fr 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "header header header header"
     "nav container container container"
     "nav container container container"
@@ -40,7 +40,7 @@ nav {
   grid-area: nav;
 }
 
-nav, 
+nav,
 header {
   box-shadow: 0.1em 0.1em 0.5em #003019;
 }
@@ -66,6 +66,10 @@ nav button,
   box-shadow: 0.1em 0.1em 0.5em;
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   grid-area: container;
   column-count: 4;
@@ -73,14 +77,12 @@ nav button,
   padding: 1em;
 }
 
-.card { 
-  background-color:rgba(155, 242, 200, 0.7);
+.card {
+  background-color: rgba(155, 242, 200, 0.7);
   border-radius: 3px;
-  border: 1px solid  #309966;
+  border: 1px solid #309966;
   padding: 1em;
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
 }
-
-

@@ -38,7 +38,7 @@ class NeighborhoodsPage extends React.Component {
 
   render() {
     const areaCards = this.state.areas.map(area => {
-      return <NeighborhoodCard 
+      return <NeighborhoodCard
         areaNickname = {area.areaNickname}
         name = {area.name}
         id = {area.id}
@@ -48,11 +48,11 @@ class NeighborhoodsPage extends React.Component {
         listings = {area.listings}
       />
     })
-    
+    const { currentUser, favoritesLength } = this.props
     return (
       <section className="main-page">
-        <Header currentUser = {this.props.currentUser}/>
-        <Nav />
+        <Header currentUser = {currentUser}/>
+        <Nav favoritesLength= {favoritesLength}/>
         <section className="container neighborhood-container">
           {areaCards}
         </section>
