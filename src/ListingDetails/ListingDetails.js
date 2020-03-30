@@ -47,7 +47,7 @@ class ListingDetails extends React.Component {
       <section className="main-page">
         <Header currentUser = {currentUser}/>
         <Nav favoritesLength={favoritesLength}/>
-        <section className="container listing-details-container">
+        <section data-testid="details-section" className="container listing-details-container">
           <section className="details-header">
             <div className="favorite-checkbox">
               <input id={listing_id} onChange={() => handleFavorites(listing_id)} type="checkbox" checked={isFavorite}/>
