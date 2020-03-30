@@ -3,7 +3,8 @@ import './Nav.css';
 import { NavLink } from 'react-router-dom'
 
 
-const Nav = () => {
+const Nav = (props) => {
+const  { favoritesLength } = props
   return (
     <nav>
       <h3>Blucifinder</h3>
