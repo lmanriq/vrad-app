@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import LoginForm from './LoginForm.js';
-import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function renderLoginForm() {
   const mockUpdateUser = jest.fn
