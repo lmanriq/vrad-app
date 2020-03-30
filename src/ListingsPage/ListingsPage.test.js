@@ -1,23 +1,30 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitForElement } from '@testing-library/react';
 import ListingsPage from './ListingsPage';
 import '@testing-library/jest-dom'
 // import sampleListings from '../sample-data/sample-listings'
 import { BrowserRouter } from "react-router-dom";
 
 describe ('Listings Page', () => {
-  it('renders text that we expect', () => {
+  it('renders text that we expect', async () => {
     const currentUser = {
       name: 'Bob',
       purpose: 'business'
     }
-    render(
+    const mockCheckIsFavorite = jest.fn();
+    const mockHandleFavorites = jest.fn();
+    const { getByTestId, getByText } = render (
       <BrowserRouter>
         <ListingsPage
           currentUser = {currentUser}
+          checkIsFavorite = {mockCheckIsFavorite}
+          handleFavorites = {mockHandleFavorites}
+          favoritesLength = {3}
         />
       </BrowserRouter>
     )
-    expect(document.querySelector('.listings-container')).toBeInTheDocument();
+    expect(getByTestId('listings-section')).toBeInTheDocument();
+    const sampleCard = await waitForElement(() => getByText('Hip RiNo Party Spot'))
+    expect(sampleCard).toBeInTheDocument();
   })
 })
