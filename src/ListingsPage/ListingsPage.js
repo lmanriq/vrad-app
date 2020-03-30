@@ -22,11 +22,13 @@ class ListingsPage extends React.Component {
     fetch('http://localhost:3001/api/v1/listings')
       .then(res => res.json())
       .then(data => this.setState({listings: [...listings, ...data.listings]}))
+      .then(wait => this.props.favorites && this.showFavorites())
       .catch(err => console.log(err.message))
   }
 
   componentDidMount() {
-    this.props.id ? this.fetchAreaListings() : this.fetchAllListings()
+    this.props.id && this.fetchAreaListings()
+    !(this.props.id) && this.fetchAllListings()
   }
 
   fetchAreaListings = () => {
@@ -44,19 +46,29 @@ class ListingsPage extends React.Component {
       .catch(err => console.log(err.message))
   }
 
+  showFavorites() {
+    console.log('in');
+    const { listings } = this.state
+    const { favorites } = this.props
+    const favListings = listings.filter(listing => favorites.includes(listing.listing_id))
+    console.log(favListings);
+    this.setState({listings: [...favListings]})
+  }
+
   render() {
     const { listings } = this.state
-    const { checkIsFavorite } = this.props
+    const { checkIsFavorite, favoritesLength, handleFavorites } = this.props
 
     return (
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
-        <Nav />
-        <section className="container">
+        <Nav favoritesLength= {favoritesLength}/>
+        <section className="container listings-container">
           {listings.map(listing =>
             <ListingsCard
               id = {listing.listing_id}
               name = {listing.name}
+              handleFavorites = { handleFavorites }
               key = {listing.listing_id}
               isFavorite = { checkIsFavorite(listing.listing_id) }
             />
