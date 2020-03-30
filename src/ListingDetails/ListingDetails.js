@@ -36,7 +36,6 @@ class ListingDetails extends React.Component {
   }
 
   render(){
-    console.log(this.state.listing)
     const { listing_id, name, address, details, area } = this.state.listing;
 
     return (
