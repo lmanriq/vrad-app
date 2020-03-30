@@ -47,6 +47,4 @@ describe('LoginForm', () => {
 
   expect(mockUpdateUser).toHaveBeenCalledWith({purpose: 'fleeing', name:'John', email: 'JohnDoe@email.com'})
   })
-
-
 })
