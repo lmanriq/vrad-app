@@ -1,6 +1,6 @@
 import React from 'react';
 import './Nav.css';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const Nav = () => {
@@ -8,12 +8,15 @@ const Nav = () => {
     <nav>
       <h3>Blucifinder</h3>
       <section className="nav-links">
-        <Link style={{ textDecoration: 'none' }} to='/neighborhoods'>
+        <NavLink to='/neighborhoods'>
           <button>Neighborhoods</button>
-        </Link>
-        <Link style={{ textDecoration: 'none' }} to='/listings'>
+        </NavLink>
+        <NavLink to='/listings'>
           <button>Listings</button>
-        </Link>
+        </NavLink>
+        <NavLink to='/favorites'>
+          <button>Favorites <span className='fav-count'>{favoritesLength}</span></button>
+        </NavLink>
       </section>
     </nav>
   )

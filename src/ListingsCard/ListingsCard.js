@@ -6,15 +6,23 @@ import React from 'react';
 import './ListingsCard.css';
 import { Link } from 'react-router-dom'
 
-function ListingsCard({ id, name, isFavorite }) {
+function ListingsCard({ id, name, isFavorite, handleFavorites }) {
+  const imgSrc =`/images/${id}_b.jpg`
   return (
     <section className='listings-card card'>
-      <h3>{ name }</h3>
-      <label className='favorite-label'>
-        <Link to={`/listings/${id}`} >
-          <button type='button'>View Details</button>
-        </Link>
-      </label>
+      <h3>{name}</h3>
+      <img className='thumb-nail' src={imgSrc} alt={name}/>
+      <div className='card-bottom'>
+        <div className="favorite-checkbox">
+          <input id={id} onChange={() => handleFavorites(id)} type="checkbox" checked={isFavorite}/>
+          <label htmlFor={id}></label>
+        </div>
+        <label className='favorite-label'>
+          <Link to={`/listings/${id}`} >
+            <button type='button'>View Details</button>
+          </Link>
+        </label>
+      </div>
     </section>
   )
 }

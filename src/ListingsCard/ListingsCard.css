@@ -1,0 +1,23 @@
+.thumb-nail {
+  width: 150px;
+  height: 60%;
+}
+
+.listings-card {
+  max-height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listings-card .favorite-checkbox {
+  position: static;
+}
+
+.card-bottom {
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

@@ -24,7 +24,7 @@ code {
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr;
   grid-template-rows: 0.5fr 1fr 1fr 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "header header header header"
     "nav container container container"
     "nav container container container"
@@ -40,9 +40,9 @@ nav {
   grid-area: nav;
 }
 
-nav, 
+nav,
 header {
-  box-shadow: 0.2em 0.2em 0.5em #003019;
+  box-shadow: 0.1em 0.1em 0.5em #003019;
 }
 
 h1,
@@ -50,6 +50,7 @@ h2,
 h3,
 p {
   font-family: 'Roboto', sans-serif;
+  font-weight: 800;
 }
 
 nav button,
@@ -62,7 +63,11 @@ nav button,
   margin: 0.8em 0;
   padding: 0.5em;
   border-radius: 0.2em;
-  box-shadow: 0.2em 0.2em 0.5em;
+  box-shadow: 0.1em 0.1em 0.5em;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {
@@ -72,14 +77,12 @@ nav button,
   padding: 1em;
 }
 
-.card { 
-  background-color:rgba(155, 242, 200, 0.7);
+.card {
+  background-color: rgba(155, 242, 200, 0.7);
   border-radius: 3px;
-  border: 2px solid  #002C90;
+  border: 1px solid #309966;
   padding: 1em;
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
 }
-
-

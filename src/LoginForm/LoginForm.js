@@ -14,6 +14,7 @@ class LoginForm extends React.Component {
   }
 
   updateState(e) {
+    console.log('ran', e.target.name);
     this.setState({[e.target.name]: e.target.value})
   }
 
