@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 
   handleFavorites = (id) => {
-    this.checkIsFavorite() ? this.removeFromFavorites(id) : this.addToFavorites(id);
+    this.checkIsFavorite(id) ? this.removeFromFavorites(id) : this.addToFavorites(id);
   }
 
   removeFromFavorites = (id) => {
@@ -64,7 +64,10 @@ class App extends React.Component {
               component={({ match }) => {
                 const { params } = match;
                 return <ListingsPage
+                  handleFavorites = {this.handleFavorites}
                   currentUser = {this.state.currentUser}
+                  checkIsFavorite = {this.checkIsFavorite}
+                  favoritesLength = {this.state.favListings.length}
                   {...params}
                 />
                }
@@ -75,6 +78,7 @@ class App extends React.Component {
               component={() => {
                 return <NeighborhoodsPage
                   currentUser = {this.state.currentUser}
+                  favoritesLength = {this.state.favListings.length}
                   areas = {this.state.areas}
                 />
               }
@@ -85,6 +89,9 @@ class App extends React.Component {
               const { params } = match;
               return (<ListingDetails
                   currentUser = {this.state.currentUser}
+                  favoritesLength = {this.state.favListings.length}
+                  handleFavorites = {this.handleFavorites}
+                  checkIsFavorite = {this.checkIsFavorite}
                   {...params}
                 />)
               }}
@@ -94,6 +101,20 @@ class App extends React.Component {
               component={() => {
                 return (<ListingsPage
                   currentUser = {this.state.currentUser}
+                  checkIsFavorite = {this.checkIsFavorite}
+                  handleFavorites = {this.handleFavorites}
+                  favoritesLength = {this.state.favListings.length}
+                  />)
+              }
+            }/>
+            <Route
+              path="/favorites" exact
+              component={() => {
+                return (<ListingsPage
+                  currentUser = {this.state.currentUser}
+                  handleFavorites = {this.handleFavorites}
+                  favorites = {this.state.favListings}
+                  favoritesLength = {this.state.favListings.length}
                   checkIsFavorite = {this.checkIsFavorite}
                   />)
               }
