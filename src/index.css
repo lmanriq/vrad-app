@@ -40,6 +40,10 @@ nav {
   grid-area: nav;
 }
 
+nav, header {
+  position: fixed;
+}
+
 nav,
 header {
   box-shadow: 0.1em 0.1em 0.5em #003019;
@@ -75,6 +79,8 @@ button {
   column-count: 4;
   column-gap: 1em;
   padding: 1em;
+  margin-left: 3em;
+  padding-top: 2em;
 }
 
 .card {
