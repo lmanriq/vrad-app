@@ -14,7 +14,6 @@ class ListingsPage extends React.Component {
     super(props)
     this.state = {
       listings: [],
-      favListings:[]
     }
   }
 
@@ -38,7 +37,6 @@ class ListingsPage extends React.Component {
       .then(listings => {const promises = listings.map(listing => {
         return fetch('http://localhost:3001' + listing)
                 .then(res => res.json())
-                // .then(data => data)
           })
           return Promise.all(promises)
         })
@@ -46,30 +44,10 @@ class ListingsPage extends React.Component {
       .catch(err => console.log(err.message))
   }
 
-  handleFavorites = (id) => {
-    const { favListings } = this.state
-    favListings.includes(id) ? this.removeFromFavorites(id) : this.addToFavorites(id);
-  }
-
-  removeFromFavorites = (id) => {
-    const { favListings } = this.state
-    const updatedListings = favListings.filter(listing => listing !== id)
-    this.setState({favListings: [...updatedListings]})
-  }
-
-  addToFavorites = (id) => {
-    const { favListings } = this.state
-    this.setState({favListings: [...favListings, id]})
-  }
-
   render() {
-    const { listings, favListings } = this.state
-  //if you click on this from the main page, listings is all listings, otherwise
-  // const fetchUrl =
-  // componentDid
-  // this.props.listings.map()
-  // return the promises
-  // Promise.all
+    const { listings } = this.state
+    const { checkIsFavorite } = this.props
+
     return (
       <section className="main-page">
         <Header currentUser = {this.props.currentUser}/>
@@ -80,7 +58,7 @@ class ListingsPage extends React.Component {
               id = {listing.listing_id}
               name = {listing.name}
               key = {listing.listing_id}
-              isFavorite = {favListings.includes(listing.listing_id)}
+              isFavorite = { checkIsFavorite(listing.listing_id) }
             />
           )}
         </section>

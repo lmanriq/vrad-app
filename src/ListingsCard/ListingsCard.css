@@ -1,0 +1,4 @@
+.favorite::before,
+.favorite::after {
+  content: ' ❤️'
+}
