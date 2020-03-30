@@ -1,17 +1,17 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitForElement } from '@testing-library/react';
 import NeighborhoodsPage from './NeighborhoodsPage';
 import '@testing-library/jest-dom'
 import sampleAreas from '../sample-data/sample-areas'
 import { BrowserRouter } from "react-router-dom";
 
 describe ('Neighborhoods Page', () => {
-  it('renders text that we expect', () => {
+  it('renders text that we expect', async () => {
     const currentUser = {
       name: 'Bob',
       purpose: 'business'
     }
-    render(
+    const { getByText, getByTestId } = render(
       <BrowserRouter>
         <NeighborhoodsPage
           currentUser = {currentUser}
@@ -19,6 +19,8 @@ describe ('Neighborhoods Page', () => {
         />
       </BrowserRouter>
     )
-    expect(document.querySelector('.neighborhood-container')).toBeInTheDocument();
+    expect(getByTestId('neighborhood-section')).toBeInTheDocument();
+    const sampleCard = await waitForElement(() => getByText('RiNo'))
+    expect(sampleCard).toBeInTheDocument();
   })
 })
