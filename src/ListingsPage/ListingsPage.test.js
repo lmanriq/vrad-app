@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, waitForElement } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import ListingsPage from './ListingsPage';
 import '@testing-library/jest-dom'
-// import sampleListings from '../sample-data/sample-listings'
 import { BrowserRouter } from "react-router-dom";
 
 describe ('Listings Page', () => {
@@ -25,7 +24,7 @@ describe ('Listings Page', () => {
     )
     expect(getByTestId('listings-section')).toBeInTheDocument();
     expect(getByText('3')).toBeInTheDocument();
-    const sampleCard = await waitForElement(() => getByText('Hip RiNo Party Spot'))
+    const sampleCard = await waitFor(() => getByText('Hip RiNo Party Spot'))
     expect(sampleCard).toBeInTheDocument();
   })
 })

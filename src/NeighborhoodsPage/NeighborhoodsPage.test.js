@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitForElement } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import NeighborhoodsPage from './NeighborhoodsPage';
 import '@testing-library/jest-dom'
 import sampleAreas from '../sample-data/sample-areas'
@@ -20,7 +20,7 @@ describe ('Neighborhoods Page', () => {
       </BrowserRouter>
     )
     expect(getByTestId('neighborhood-section')).toBeInTheDocument();
-    const sampleCard = await waitForElement(() => getByText('RiNo'))
+    const sampleCard = await waitFor(() => getByText('RiNo'))
     expect(sampleCard).toBeInTheDocument();
   })
 })
