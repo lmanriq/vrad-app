@@ -66,6 +66,7 @@ class App extends React.Component {
               path="/listings/:id"
               component={({ match }) => {
               const { params } = match;
+              // console.log(params)
               return (<ListingDetails
                   currentUser = {this.state.currentUser}
                   {...params}
