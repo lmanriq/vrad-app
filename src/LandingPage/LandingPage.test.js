@@ -8,7 +8,8 @@ function renderLandingPage() {
   const utils = render(
     <Router>
       <LandingPage
-      updateUser = {jest.fn()}
+        updateUser = {jest.fn()}
+        loadFavs = {jest.fn()}
        />
     </Router>
  )
@@ -30,6 +31,4 @@ describe('LandingPage', () => {
     expect(nameField).toBeInTheDocument()
     expect(emailField).toBeInTheDocument()
   })
-
-
 })
