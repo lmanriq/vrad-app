@@ -78,9 +78,10 @@ button {
   grid-area: container;
   column-count: 4;
   column-gap: 1em;
-  padding: 1em;
-  margin-left: 3em;
-  padding-top: 2em;
+  padding: 2em 1em 1em 5em;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -91,4 +92,5 @@ button {
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
+  min-width: 15em;
 }
