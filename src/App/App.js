@@ -6,18 +6,7 @@ import NeighborhoodsPage from './../NeighborhoodsPage/NeighborhoodsPage.js'
 import ListingsPage from './../ListingsPage/ListingsPage.js'
 import ListingDetails from '../ListingDetails/ListingDetails.js'
 
-
-// class component
-
 class App extends React.Component {
-  //When a user clicks on the View Listings, the user should then be redirected to /areas/:area_id/listings/.
-  //NOTE: Be careful on how to structure this route. The parts of the route that are dynamic (ex: /:area_id) should not actually include a colon - it is simply to show that this part of the route should change. An example of what a completed route would look like could be: /areas/66
-  // http://localhost:3001/api/v1/areas
-  // http://localhost:3001/api/v1/areas/:id
-  // http://localhost:3001/api/v1/listings/:id
-  // const AREAS = 'areas'
-
-  // fetch(BASE + AREAS + AREA_ID)
   constructor() {
     super()
     this.state = {
@@ -92,7 +81,7 @@ class App extends React.Component {
                   favoritesLength = {this.state.favListings.length}
                   handleFavorites = {this.handleFavorites}
                   checkIsFavorite = {this.checkIsFavorite}
-                  {...params}
+                  id = {parseInt(params.id)}
                 />)
               }}
             />
