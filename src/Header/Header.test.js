@@ -9,7 +9,7 @@ describe ('Header', () => {
   it('renders text that we expect', () => {
     const { getByText, getByAltText } = render(
       <BrowserRouter>
-        <Header 
+        <Header
           currentUser = {
             {
               name: 'Bob',
@@ -24,12 +24,12 @@ describe ('Header', () => {
     expect(getByAltText('avatar')).toBeInTheDocument();
     expect(getByText('Log Out')).toBeInTheDocument();
   })
-  
+
   it("navigates to the login page when you click log out", async ()=> {
     const history = createMemoryHistory();
     const { getByText } = render(
       <BrowserRouter>
-        <Header 
+        <Header
           currentUser = {
             {
               name: 'Bob',

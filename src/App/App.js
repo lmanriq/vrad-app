@@ -7,8 +7,6 @@ import ListingsPage from './../ListingsPage/ListingsPage.js'
 import ListingDetails from '../ListingDetails/ListingDetails.js'
 
 
-// class component
-
 class App extends React.Component {
   constructor() {
     super()
