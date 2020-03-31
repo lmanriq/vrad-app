@@ -7,6 +7,7 @@ import Header from './../Header/Header.js'
 class ListingDetails extends React.Component {
   constructor(props) {
     super(props)
+    this.controller = new AbortController()
     this.state = {
       listing: {
         listing_id: null,
@@ -29,22 +30,27 @@ class ListingDetails extends React.Component {
   }
 
   componentDidMount() {
+    const signal = this.controller.signal;
     const { checkIsFavorite, id } = this.props
-    fetch(`http://localhost:3001/api/v1/listings/${id}`)
+    fetch(`http://localhost:3001/api/v1/listings/${id}`, { signal })
       .then(res => res.json())
       .then(data => this.setState({listing: {...data}}))
       .then(wait => this.setState({isFavorite: checkIsFavorite(this.state.listing.listing_id)}))
       .catch(err => console.log(err.message))
   }
 
+  componentWillUnmount() {
+    this.controller.abort();
+  }
+
   render(){
     const { listing, isFavorite } = this.state;
     const { listing_id, name, address, details } = listing;
-    const { handleFavorites, currentUser, favoritesLength } = this.props
+    const { handleFavorites, currentUser, favoritesLength, logOut } = this.props
 
     return (
       <section className="main-page">
-        <Header currentUser = {currentUser}/>
+        <Header logOut = {logOut} currentUser = {currentUser}/>
         <Nav favoritesLength={favoritesLength}/>
         <section data-testid="details-section" className="container listing-details-container">
           <section className="details-header">

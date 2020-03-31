@@ -5,7 +5,7 @@ import LoginForm from '../LoginForm/LoginForm.js'
 import { ReactComponent as Logo }  from './../logo.svg'
 
 
-function LandingPage({ updateUser }) {
+function LandingPage({ updateUser, loadFavs }) {
   return (
     <section className='landing-page'>
       <div className='container-landing'>
@@ -14,7 +14,9 @@ function LandingPage({ updateUser }) {
         </div>
         <h1>Welcome to Blucifinder</h1>
         <LoginForm
-          updateUser = { updateUser }/>
+          updateUser = { updateUser }
+          loadFavs = { loadFavs }
+          />
       </div>
     </section>
   )

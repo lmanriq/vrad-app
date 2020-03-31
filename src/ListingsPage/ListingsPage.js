@@ -8,14 +8,16 @@ import Header from './../Header/Header.js'
 class ListingsPage extends React.Component {
   constructor(props) {
     super(props)
+    this.controller = new AbortController()
     this.state = {
       listings: [],
     }
   }
 
   fetchAllListings = () => {
+    const signal = this.controller.signal;
     const { listings } = this.state
-    fetch('http://localhost:3001/api/v1/listings')
+    fetch('http://localhost:3001/api/v1/listings', { signal })
       .then(res => res.json())
       .then(data => this.setState({listings: [...listings, ...data.listings]}))
       .then(wait => this.props.favorites && this.showFavorites())
@@ -28,8 +30,9 @@ class ListingsPage extends React.Component {
   }
 
   fetchAreaListings = () => {
+    const signal = this.controller.signal;
     let { id } = this.props
-    fetch(`http://localhost:3001/api/v1/areas/${id}`)
+    fetch(`http://localhost:3001/api/v1/areas/${id}`, { signal })
       .then(res => res.json())
       .then(data => data.listings)
       .then(listings => {const promises = listings.map(listing => {
@@ -43,7 +46,6 @@ class ListingsPage extends React.Component {
   }
 
   showFavorites() {
-    console.log('in');
     const { listings } = this.state
     const { favorites } = this.props
     const favListings = listings.filter(listing => favorites.includes(listing.listing_id))
@@ -51,13 +53,17 @@ class ListingsPage extends React.Component {
     this.setState({listings: [...favListings]})
   }
 
+  componentWillUnmount() {
+    this.controller.abort();
+  }
+
   render() {
     const { listings } = this.state
-    const { checkIsFavorite, favoritesLength, handleFavorites } = this.props
+    const { checkIsFavorite, favoritesLength, handleFavorites, logOut } = this.props
 
     return (
       <section className="main-page">
-        <Header currentUser = {this.props.currentUser}/>
+        <Header logOut = {logOut} currentUser = {this.props.currentUser}/>
         <Nav favoritesLength= {favoritesLength}/>
         <section data-testid="listings-section" className="container listings-container">
           {listings.map(listing =>

@@ -9,13 +9,15 @@ import NeighborhoodCard from '../NeighborhoodCard/NeighborhoodCard.js'
 class NeighborhoodsPage extends React.Component {
   constructor(props) {
     super(props)
+    this.controller = new AbortController()
     this.state = {
       areas: []
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/areas')
+    const signal = this.controller.signal;
+    fetch('http://localhost:3001/api/v1/areas', { signal })
       .then(response => response.json())
       .then(data => {
         const promises = data.areas.map(area => {
@@ -34,6 +36,11 @@ class NeighborhoodsPage extends React.Component {
       .catch(err => console.error(err))
   }
 
+  componentWillUnmount() {
+    this.controller.abort();
+  }
+
+
   render() {
     const areaCards = this.state.areas.map(area => {
       return <NeighborhoodCard
@@ -46,10 +53,10 @@ class NeighborhoodsPage extends React.Component {
         listings = {area.listings}
       />
     })
-    const { currentUser, favoritesLength } = this.props
+    const { currentUser, favoritesLength, logOut } = this.props
     return (
       <section className="main-page">
-        <Header currentUser = {currentUser}/>
+        <Header logOut = {logOut} currentUser = {currentUser}/>
         <Nav favoritesLength= {favoritesLength}/>
         <section data-testid="neighborhood-section" className="container neighborhood-container">
           {areaCards}

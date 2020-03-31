@@ -12,10 +12,10 @@ const Header = (props) => {
           <h1>Welcome, {props.currentUser.name}</h1>
           <p>We're here to help with all of your {props.currentUser.purpose} needs</p>
         </section>
-        <section className="avatar-section"> 
+        <section className="avatar-section">
           <img className="avatar-photo" src="/images/avatar-photo.png" alt="avatar" />
           <Link to='/'>
-            <button type="button">Log Out</button>
+            <button onClick={props.logOut} type="button">Log Out</button>
           </Link>
         </section>
       </section>

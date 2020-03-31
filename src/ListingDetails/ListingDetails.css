@@ -24,13 +24,13 @@
   display: none;
 }
 
-input+label {
+.favorite-checkbox input+label {
   content: url('../assets/005-unchecked.svg');
   width: 3rem;
   cursor: pointer;
 }
 
-input:checked+label {
+.favorite-checkbox input:checked+label {
   content: url('../assets/004-checked.svg');
 }
 
