@@ -1,8 +1,8 @@
 * {
   box-sizing: border-box;
-  border: none;
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 html,
@@ -22,14 +22,14 @@ code {
 
 .main-page {
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  grid-auto-rows: 100px;
   grid-template-areas:
     "header header header header"
     "nav container container container"
     "nav container container container"
     "nav container container container";
-  grid-auto-rows: 100px;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr;
 }
 
 header {
@@ -59,15 +59,15 @@ p {
 
 nav button,
 .card button {
-  text-align: center;
-  background-color: #309966;
-  border: none;
-  color: #ffffff;
-  font-size: 1em;
   margin: 0.8em 0;
   padding: 0.5em;
+  border: none;
   border-radius: 0.2em;
+  background-color: #309966;
   box-shadow: 0.1em 0.1em 0.5em;
+  color: #ffffff;
+  font-size: 1em;
+  text-align: center;
 }
 
 button {
@@ -75,22 +75,22 @@ button {
 }
 
 .container {
-  grid-area: container;
-  column-count: 4;
-  column-gap: 1em;
-  padding: 2em 1em 1em 5em;
-  width: 100%;
   display: flex;
+  grid-area: container;
   flex-wrap: wrap;
+  width: 100%;
+  padding: 2em 1em 1em 5em;
+  column-gap: 1em;
+  column-count: 4;
 }
 
 .card {
-  background-color: rgba(155, 242, 200, 0.7);
-  border-radius: 3px;
-  border: 1px solid #309966;
-  padding: 1em;
   display: inline-block;
-  margin: 0 0 1em;
   width: 100%;
   min-width: 15em;
+  margin: 0 0 1em;
+  padding: 1em;
+  border: 1px solid #309966;
+  border-radius: 3px;
+  background-color: rgba(155, 242, 200, 0.7);
 }
