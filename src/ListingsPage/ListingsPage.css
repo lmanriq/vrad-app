@@ -1,9 +1,3 @@
-.listings-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .listings-container .card {
   width: 30%;
   margin: 2% 1%;
