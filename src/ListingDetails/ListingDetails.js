@@ -41,16 +41,16 @@ class ListingDetails extends React.Component {
   render(){
     const { listing, isFavorite } = this.state;
     const { listing_id, name, address, details } = listing;
-    const { handleFavorites, checkIsFavorite, currentUser, favoritesLength } = this.props
+    const { handleFavorites, currentUser, favoritesLength } = this.props
 
     return (
       <section className="main-page">
         <Header currentUser = {currentUser}/>
         <Nav favoritesLength={favoritesLength}/>
-        <section className="container listing-details-container">
+        <section data-testid="details-section" className="container listing-details-container">
           <section className="details-header">
             <div className="favorite-checkbox">
-              <input id={listing_id} onChange={() => handleFavorites(listing_id)} type="checkbox" checked={isFavorite}/>
+              <input data-testid="favorites-checkbox" id={listing_id} onChange={() => handleFavorites(listing_id)} type="checkbox" checked={isFavorite}/>
               <label htmlFor={listing_id}></label>
             </div>
             <div>
