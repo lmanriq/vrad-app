@@ -42,7 +42,6 @@ class ListingsPage extends React.Component {
     const { listings } = this.state
     const { favorites } = this.props
     const favListings = listings.filter(listing => favorites.includes(listing.listing_id))
-    console.log(favListings);
     this.setState({listings: [...favListings]})
   }
 
