@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './LandingPage.css';
 import LoginForm from '../LoginForm/LoginForm.js'
 import { ReactComponent as Logo }  from './../logo.svg'
@@ -20,3 +21,9 @@ function LandingPage({ updateUser }) {
 }
 
 export default LandingPage
+
+LandingPage.propTypes = {
+  updateUser: PropTypes.func
+}
+
+
