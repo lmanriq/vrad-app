@@ -113,7 +113,6 @@ class App extends React.Component {
                 return <NeighborhoodsPage
                   currentUser = {this.state.currentUser}
                   favoritesLength = {this.state.favListings.length}
-                  areas = {this.state.areas}
                   logOut = {this.logOut}
                 />
               }
