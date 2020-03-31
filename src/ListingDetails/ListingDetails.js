@@ -8,6 +8,7 @@ import Header from './../Header/Header.js'
 class ListingDetails extends React.Component {
   constructor(props) {
     super(props)
+    this.controller = new AbortController()
     this.state = {
       listing: {
         listing_id: null,
@@ -30,12 +31,17 @@ class ListingDetails extends React.Component {
   }
 
   componentDidMount() {
+    const signal = this.controller.signal;
     const { checkIsFavorite, id } = this.props
-    fetch(`http://localhost:3001/api/v1/listings/${id}`)
+    fetch(`http://localhost:3001/api/v1/listings/${id}`, { signal })
       .then(res => res.json())
       .then(data => this.setState({listing: {...data}}))
       .then(wait => this.setState({isFavorite: checkIsFavorite(this.state.listing.listing_id)}))
       .catch(err => console.log(err.message))
+  }
+
+  componentWillUnmount() {
+    this.controller.abort();
   }
 
   render(){
