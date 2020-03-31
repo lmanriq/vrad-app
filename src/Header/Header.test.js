@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Header from './Header';
 import '@testing-library/jest-dom'
 import { BrowserRouter } from "react-router-dom";
@@ -24,8 +24,6 @@ describe ('Header', () => {
     expect(getByAltText('avatar')).toBeInTheDocument();
     expect(getByText('Log Out')).toBeInTheDocument();
   })
-
-  // This test is incomplete
   
   it("navigates to the login page when you click log out", async ()=> {
     const history = createMemoryHistory();

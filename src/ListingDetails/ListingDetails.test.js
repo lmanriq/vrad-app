@@ -39,7 +39,7 @@ describe ('Listing Details', () => {
     expect(getByText('5')).toBeInTheDocument();
   })
 
-  it('can be favorites', async () => {
+  it('can be favorited', async () => {
     const currentUser = {
       name: 'Bob',
       purpose: 'business'
