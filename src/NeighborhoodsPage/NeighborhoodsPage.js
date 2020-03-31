@@ -19,7 +19,9 @@ class NeighborhoodsPage extends React.Component {
   componentDidMount() {
     const signal = this.controller.signal;
     fetchNeighborhoodData(signal)
-      .then(data => this.setState({areas: data}))
+      .then(data => {
+        // console.log(data)
+        this.setState({areas: data})})
       .catch(err => console.error(err))
   }
 
