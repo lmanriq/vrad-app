@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './NeighborhoodsPage.css';
-import Nav from './../Nav/Nav.js'
-import Header from './../Header/Header.js'
-import NeighborhoodCard from '../NeighborhoodCard/NeighborhoodCard.js'
+import Nav from './../Nav/Nav.js';
+import Header from './../Header/Header.js';
+import NeighborhoodCard from '../NeighborhoodCard/NeighborhoodCard.js';
+import { fetchNeighborhoodData } from '../utils/apiCalls'
 
 
 class NeighborhoodsPage extends React.Component {
@@ -14,24 +15,10 @@ class NeighborhoodsPage extends React.Component {
       areas: []
     }
   }
-
+  
   componentDidMount() {
     const signal = this.controller.signal;
-    fetch('http://localhost:3001/api/v1/areas', { signal })
-      .then(response => response.json())
-      .then(data => {
-        const promises = data.areas.map(area => {
-          return fetch('http://localhost:3001' + area.details)
-            .then(response => response.json())
-            .then(data => {
-              return {
-                areaNickname: area.area,
-                ...data
-              }
-            })
-        })
-        return Promise.all(promises)
-      })
+    fetchNeighborhoodData(signal)
       .then(data => this.setState({areas: data}))
       .catch(err => console.error(err))
   }
@@ -39,7 +26,6 @@ class NeighborhoodsPage extends React.Component {
   componentWillUnmount() {
     this.controller.abort();
   }
-
 
   render() {
     const areaCards = this.state.areas.map(area => {
