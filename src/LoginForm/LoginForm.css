@@ -6,22 +6,22 @@ Dark Green: #003019; */
 .login-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  margin: 2% 15%;
+  justify-content: space-around;
   width: 70%;
   height: 40%;
-  background-color: #309966;
+  margin: 2% 15%;
   border-radius: 30px;
+  background-color: #309966;
 }
 
 .login-form select,
 .login-form input {
   margin-left: 3%;
-  font-size: 1rem;
-  background: #9BF2C8;
   padding: 1%;
   border-radius: 30px;
+  background: #9BF2C8;
+  font-size: 1rem;
 }
 
 .login-form input::placeholder {
@@ -36,10 +36,10 @@ Dark Green: #003019; */
 .login-form button {
   width: 40%;
   padding: 1%;
-  font-size: 1.2rem;
-  color: #003019;
-  background: #9BF2C8;
   border-radius: 30px;
+  background: #9BF2C8;
+  color: #003019;
+  font-size: 1.2rem;
 }
 
 .login-form a {

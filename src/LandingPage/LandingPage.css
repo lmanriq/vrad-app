@@ -5,9 +5,9 @@ Cadmium Green: #0D663B;
 Dark Green: #003019; */
 .landing-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   color: #003019;
 }
@@ -18,17 +18,17 @@ Dark Green: #003019; */
 }
 
 .icon-landing {
+  -webkit-filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.5));
   width: 15rem;
   height: 15rem;
-  -webkit-filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.5));
   filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
 .container-landing {
   width: 55%;
   padding: 1% 2% 10%;
-  background-color: #9BF2C8;
   border-radius: 30px;
+  background-color: #9BF2C8;
 }
 
 @media only screen and (max-width: 875px) {

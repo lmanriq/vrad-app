@@ -1,18 +1,21 @@
 .listing-details-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  width: 93.5%;
+  margin: 1em;
+  margin-top: 4em;
+  margin-left: 4em;
   border: 1px solid #309966;
-  margin: 2em;
-  padding: 0;
 }
 
 .details-header {
-  background-color: #309966;
-  height: 20%;
   display: flex;
-  justify-content: center;
-  position: relative;
   z-index: -1;
+  position: relative;
+  justify-content: center;
+  height: 20%;
+  background-color: #309966;
 }
 
 .favorite-checkbox {
@@ -26,8 +29,8 @@
 }
 
 .favorite-checkbox input+label {
-  content: url('../assets/005-unchecked.svg');
   width: 3rem;
+  content: url('../assets/005-unchecked.svg');
   cursor: pointer;
 }
 
@@ -50,13 +53,13 @@
 
 .listing-imgs {
   display: flex;
-  overflow-x: scroll;
   height: 50%;
   margin: 1em;
+  overflow-x: scroll;
 }
 
 .listing-imgs img {
-  height: 100%;
   width: auto;
+  height: 100%;
   margin: 0 0.5em;
 }
