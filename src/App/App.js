@@ -30,6 +30,18 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const location = window.location.pathname !== '/'
+    const { name } = this.state.currentUser
+    if (window.localStorage.user) {
+      const userString = window.localStorage.getItem('user')
+      const user = JSON.parse(userString)
+      this.setState({currentUser: {...user}})
+    } else if (name === null && location) {
+      window.location.pathname = '/'
+    }
+  }
+
   checkIsFavorite = (id) => {
     const { favListings } = this.state
     return favListings.includes(id)
