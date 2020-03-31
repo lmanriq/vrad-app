@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Nav.css';
 import { NavLink } from 'react-router-dom'
 
@@ -24,3 +25,7 @@ const  { favoritesLength } = props
 }
 
 export default Nav;
+
+Nav.propTypes = {
+  favoritesLength: PropTypes.number
+}

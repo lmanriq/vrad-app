@@ -1,9 +1,5 @@
-// class component
-
-// favoriteListings array in state that stores fav ids
-// isFavorite prop passed down to card (check if included in the favs array)
-// addToFavorites and removeFromFavorites methods to add/subtract from the array
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ListingsPage.css';
 import Nav from './../Nav/Nav.js'
 import ListingsCard from './../ListingsCard/ListingsCard.js'
@@ -85,4 +81,14 @@ class ListingsPage extends React.Component {
   }
 }
 
-export default ListingsPage
+export default ListingsPage;
+
+ListingsPage.propTypes = {
+  currentUser: PropTypes.object,
+  favoritesLength: PropTypes.number, 
+  handleFavorites: PropTypes.func,
+  checkIsFavorite: PropTypes.func,
+  favorites: PropTypes.array
+}
+
+

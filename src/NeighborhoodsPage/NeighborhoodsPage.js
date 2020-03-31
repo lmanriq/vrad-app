@@ -1,7 +1,5 @@
-// class component
-
-// state has a neighborhoods property which is where we store the fetched neighborhood data
 import React from 'react';
+import PropTypes from 'prop-types';
 import './NeighborhoodsPage.css';
 import Nav from './../Nav/Nav.js'
 import Header from './../Header/Header.js'
@@ -69,3 +67,9 @@ class NeighborhoodsPage extends React.Component {
 }
 
 export default NeighborhoodsPage
+
+NeighborhoodsPage.propTypes = {
+  currentUser: PropTypes.object,
+  favoritesLength: PropTypes.number,
+  areas: PropTypes.array
+}

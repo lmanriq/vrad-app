@@ -6,7 +6,6 @@ import NeighborhoodsPage from './../NeighborhoodsPage/NeighborhoodsPage.js'
 import ListingsPage from './../ListingsPage/ListingsPage.js'
 import ListingDetails from '../ListingDetails/ListingDetails.js'
 
-
 class App extends React.Component {
   constructor() {
     super()
@@ -129,7 +128,7 @@ class App extends React.Component {
                   handleFavorites = {this.handleFavorites}
                   checkIsFavorite = {this.checkIsFavorite}
                   logOut = {this.logOut}
-                  {...params}
+                  id = {parseInt(params.id)}
                 />)
               }}
             />
