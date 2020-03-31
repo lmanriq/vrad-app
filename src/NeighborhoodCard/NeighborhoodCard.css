@@ -1,5 +1,7 @@
 .neighborhood-card {
-  margin-bottom: 2em;
+  width: 22%;
+  margin: 1%;
+  max-height: 24em;
 }
 
 .neighborhood-card h4 {
