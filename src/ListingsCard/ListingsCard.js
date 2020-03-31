@@ -1,8 +1,5 @@
-// functional component
-// Listings card - Name, picture, view details btn, favorite icon
-// card render: const checked = isFavorite, render checkbox as checked
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ListingsCard.css';
 import { Link } from 'react-router-dom'
 
@@ -27,4 +24,12 @@ function ListingsCard({ id, name, isFavorite, handleFavorites }) {
   )
 }
 
-export default ListingsCard
+export default ListingsCard;
+
+ListingsCard.propTypes = {
+  id: PropTypes.number, 
+  name: PropTypes.string,
+  handleFavorites: PropTypes.func,
+  key: PropTypes.number, 
+  isFavorite: PropTypes.bool
+}
