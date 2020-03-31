@@ -41,7 +41,7 @@ class ListingDetails extends React.Component {
   render(){
     const { listing, isFavorite } = this.state;
     const { listing_id, name, address, details } = listing;
-    const { handleFavorites, checkIsFavorite, currentUser, favoritesLength } = this.props
+    const { handleFavorites, currentUser, favoritesLength } = this.props
 
     return (
       <section className="main-page">
