@@ -6,7 +6,6 @@ import NeighborhoodsPage from './../NeighborhoodsPage/NeighborhoodsPage.js'
 import ListingsPage from './../ListingsPage/ListingsPage.js'
 import ListingDetails from '../ListingDetails/ListingDetails.js'
 
-
 class App extends React.Component {
   constructor() {
     super()
@@ -82,7 +81,7 @@ class App extends React.Component {
                   favoritesLength = {this.state.favListings.length}
                   handleFavorites = {this.handleFavorites}
                   checkIsFavorite = {this.checkIsFavorite}
-                  {...params}
+                  id = {parseInt(params.id)}
                 />)
               }}
             />

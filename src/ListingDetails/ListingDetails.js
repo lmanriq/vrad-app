@@ -1,6 +1,5 @@
-// functional component
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ListingDetails.css';
 import Nav from './../Nav/Nav.js'
 import Header from './../Header/Header.js'
@@ -75,4 +74,12 @@ class ListingDetails extends React.Component {
   }
 }
 
-export default ListingDetails
+export default ListingDetails;
+
+ListingDetails.propTypes = {
+  currentUser: PropTypes.object,
+  favoritesLength: PropTypes.number, 
+  handleFavorites: PropTypes.func,
+  checkIsFavorite: PropTypes.func,
+  id: PropTypes.number
+}

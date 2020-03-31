@@ -1,5 +1,5 @@
-// class component to hold onto form inputs
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import './LoginForm.css';
 
@@ -66,3 +66,7 @@ class LoginForm extends React.Component {
 }
 
 export default LoginForm;
+
+LoginForm.propTypes = {
+  updateUser: PropTypes.func
+}
