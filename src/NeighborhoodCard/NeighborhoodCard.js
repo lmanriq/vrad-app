@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './NeighborhoodCard.css';
 import { Link } from 'react-router-dom'
 
@@ -25,3 +26,13 @@ const NeighborhoodCard = ({ id, areaNickname, name, location, description }) => 
 }
 
 export default NeighborhoodCard; 
+
+NeighborhoodCard.propTypes = {
+  areaNickname: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.number,
+  key: PropTypes.number,
+  location: PropTypes.string,
+  description: PropTypes.string,
+  listings: PropTypes.array
+}
