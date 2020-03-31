@@ -30,6 +30,5 @@ ListingsCard.propTypes = {
   id: PropTypes.number, 
   name: PropTypes.string,
   handleFavorites: PropTypes.func,
-  key: PropTypes.number, 
   isFavorite: PropTypes.bool
 }
