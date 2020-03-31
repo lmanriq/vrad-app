@@ -2,12 +2,9 @@ import React from 'react';
 import './Nav.css';
 import { NavLink } from 'react-router-dom'
 
-// class component
 
-const Nav = ({ favoritesLength }) => {
-  // this.state = {
-  //   selectedLink = null;
-  // }
+const Nav = (props) => {
+const  { favoritesLength } = props
   return (
     <nav>
       <h3>Blucifinder</h3>

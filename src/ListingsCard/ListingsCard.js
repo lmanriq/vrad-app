@@ -14,8 +14,8 @@ function ListingsCard({ id, name, isFavorite, handleFavorites }) {
       <img className='thumb-nail' src={imgSrc} alt={name}/>
       <div className='card-bottom'>
         <div className="favorite-checkbox">
-          <input id={id} onChange={() => handleFavorites(id)} type="checkbox" checked={isFavorite}/>
-          <label htmlFor={id}></label>
+          <input data-testid="favorites-checkbox" id={id} onChange={() => handleFavorites(id)} type="checkbox" checked={isFavorite}/>
+          <label data-testid="favorites-lable" htmlFor={id}></label>
         </div>
         <label className='favorite-label'>
           <Link to={`/listings/${id}`} >
