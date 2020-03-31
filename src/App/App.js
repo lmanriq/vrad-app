@@ -24,11 +24,18 @@ class App extends React.Component {
 
   componentDidMount() {
     const location = window.location.pathname !== '/'
-    const { name } = this.state.currentUser
+    const { currentUser, favListings } = this.state
+    const { name } = currentUser
     if (window.localStorage.user) {
       const userString = window.localStorage.getItem('user')
       const user = JSON.parse(userString)
-      this.setState({currentUser: {...user}})
+      const key = user.email
+      const favsString = window.localStorage.getItem(`${key}Favs`)
+      const favs = JSON.parse(favsString)
+      this.setState({
+        currentUser: {...user},
+        favListings: [...favListings, ...favs]
+      })
     } else if (name === null && location) {
       window.location.pathname = '/'
     }
