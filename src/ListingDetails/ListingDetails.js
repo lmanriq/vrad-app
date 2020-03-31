@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './ListingDetails.css';
 import Nav from './../Nav/Nav.js'
 import Header from './../Header/Header.js'
+import { fetchListingDetailsData } from '../utils/apiCalls'
 
 class ListingDetails extends React.Component {
   constructor(props) {
@@ -32,8 +33,7 @@ class ListingDetails extends React.Component {
   componentDidMount() {
     const signal = this.controller.signal;
     const { checkIsFavorite, id } = this.props
-    fetch(`http://localhost:3001/api/v1/listings/${id}`, { signal })
-      .then(res => res.json())
+    fetchListingDetailsData(id, signal)
       .then(data => this.setState({listing: {...data}}))
       .then(wait => this.setState({isFavorite: checkIsFavorite(this.state.listing.listing_id)}))
       .catch(err => console.log(err.message))
