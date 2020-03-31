@@ -53,7 +53,7 @@ class NeighborhoodsPage extends React.Component {
       <section className="main-page">
         <Header currentUser = {currentUser}/>
         <Nav favoritesLength= {favoritesLength}/>
-        <section className="container neighborhood-container">
+        <section data-testid="neighborhood-section" className="container neighborhood-container">
           {areaCards}
         </section>
       </section>
