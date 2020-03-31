@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Blucifinder
 
-## Available Scripts
+## Screen Grabs of Finished Product
 
-In the project directory, you can run:
+<img width="1041" alt="Screen Shot 2020-03-31 at 4 22 40 PM" src="https://user-images.githubusercontent.com/56409751/78080735-608b7280-739e-11ea-8d1e-e49c5779910a.png">
+<img width="1161" alt="Screen Shot 2020-03-31 at 4 23 32 PM" src="https://user-images.githubusercontent.com/56409751/78080739-61bc9f80-739e-11ea-904d-4d758218ed13.png">
+<img width="1432" alt="Screen Shot 2020-03-31 at 4 22 52 PM" src="https://user-images.githubusercontent.com/56409751/78080740-62553600-739e-11ea-8600-2a4a091e9e87.png">
+<img width="1156" alt="Screen Shot 2020-03-31 at 4 23 10 PM" src="https://user-images.githubusercontent.com/56409751/78080751-6b460780-739e-11ea-9bce-80e00b1541c3.png">
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## General info
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Blucifinder is an application built with react. Tested with Jest and @testing-library/react. This project was created as a paired programming exercise in Front End Engineering Module 3 at _Turing School of Software and Design_ This project demonstrates a comprehension of __TDD__ _test driven development_, __object oriented programming__, and  __data structure__ as well as DOM creation around the consumed data.
 
-### `npm test`
+## Learning Goals
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Test Driven development
+* Object Oriented Programming
+* DRY and Re-useable Code
+* Async testing
+* React
+* React testing
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Navigate to the project repository (repo) on GitHub (https://github.com/lmanriq/vrad-app). Then, click the __green__ button that reads _'clone or download'_.
+2. Navigate to the CLI (Terminal) on your machine and enter: `git clone [remote-address] [what you want to name the repo]` – replace what is in the [] with the cloned URL and whatever you would like to call the repo.
+3. Once you have cloned the repo, change into the directory and install the project dependencies. Run `npm install` to install project dependencies.
+4. Run `npm start` in the terminal to see the HTML page (you should see some boilerplate HTML displayed on the page).
+5. Navigate to the api repository (repo) on GitHub (https://github.com/turingschool/VRAD-API). Then, click the __green__ button that reads _'clone or download'_.
+6. repeat steps 3 and 4
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Project is created with:
+* JSX
+* CSS
+* React
+* _Testing Suite:_ Jest, React Testing Library, & Jest-DOM
