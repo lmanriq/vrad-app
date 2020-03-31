@@ -27,13 +27,12 @@ describe('Nav', () => {
   })
 
   it('Should navigate', () => {
-    const { getByText, debug } = renderNav()
+    const { getByText } = renderNav()
     const neighborhoodsBtn = getByText('Neighborhoods')
     const listingsBtn = getByText('Listings')
-    debug()
-    // fireEvent.click(listingsBtn)
+    fireEvent.click(listingsBtn)
+    expect(location.pathname).toBe('/listings')
     fireEvent.click(neighborhoodsBtn)
-    // expect(location.pathname).toBe('/listings')
     expect(location.pathname).toBe('/neighborhoods')
   })
 
