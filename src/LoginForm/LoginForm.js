@@ -35,6 +35,19 @@ class LoginForm extends React.Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  componentWillUnmount() {
+    const { email } = this.state
+    const key = email
+    if (!window.localStorage[`${key}Favs`]) {
+      window.localStorage.setItem(`${key}Favs`, JSON.stringify([]))
+    } else {
+      const key = email
+      const favsString = window.localStorage.getItem(`${key}Favs`)
+      const favs = JSON.parse(favsString)
+      this.props.loadFavs(favs)
+    }
+  }
+
   render() {
     const { name, email, purpose } = this.state;
     const isDisabled = !(name && email && purpose);

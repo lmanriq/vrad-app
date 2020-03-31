@@ -3,9 +3,6 @@ import './Header.css';
 import { Link } from 'react-router-dom'
 
 const Header = (props) => {
-  function LogOut() {
-    window.localStorage.removeItem('user')
-  }
   return (
     <header>
       <img className="small-logo" src="/images/logo.svg" alt="blucifinder logo"/>
@@ -17,7 +14,7 @@ const Header = (props) => {
         <section className="avatar-section">
           <img className="avatar-photo" src="/images/avatar-photo.png" alt="avatar" />
           <Link to='/'>
-            <button onClick={LogOut} type="button">Log Out</button>
+            <button onClick={props.logOut} type="button">Log Out</button>
           </Link>
         </section>
       </section>

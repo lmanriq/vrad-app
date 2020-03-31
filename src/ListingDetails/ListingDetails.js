@@ -47,11 +47,11 @@ class ListingDetails extends React.Component {
   render(){
     const { listing, isFavorite } = this.state;
     const { listing_id, name, address, details } = listing;
-    const { handleFavorites, checkIsFavorite, currentUser, favoritesLength } = this.props
+    const { handleFavorites, checkIsFavorite, currentUser, favoritesLength, logOut } = this.props
 
     return (
       <section className="main-page">
-        <Header currentUser = {currentUser}/>
+        <Header logOut = {logOut} currentUser = {currentUser}/>
         <Nav favoritesLength={favoritesLength}/>
         <section className="container listing-details-container">
           <section className="details-header">

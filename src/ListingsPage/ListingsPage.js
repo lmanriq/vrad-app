@@ -63,11 +63,11 @@ class ListingsPage extends React.Component {
 
   render() {
     const { listings } = this.state
-    const { checkIsFavorite, favoritesLength, handleFavorites } = this.props
+    const { checkIsFavorite, favoritesLength, handleFavorites, logOut } = this.props
 
     return (
       <section className="main-page">
-        <Header currentUser = {this.props.currentUser}/>
+        <Header logOut = {logOut} currentUser = {this.props.currentUser}/>
         <Nav favoritesLength= {favoritesLength}/>
         <section className="container listings-container">
           {listings.map(listing =>

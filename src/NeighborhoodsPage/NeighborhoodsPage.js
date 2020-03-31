@@ -55,10 +55,10 @@ class NeighborhoodsPage extends React.Component {
         listings = {area.listings}
       />
     })
-    const { currentUser, favoritesLength } = this.props
+    const { currentUser, favoritesLength, logOut } = this.props
     return (
       <section className="main-page">
-        <Header currentUser = {currentUser}/>
+        <Header logOut = {logOut} currentUser = {currentUser}/>
         <Nav favoritesLength= {favoritesLength}/>
         <section className="container neighborhood-container">
           {areaCards}
