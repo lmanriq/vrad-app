@@ -69,7 +69,7 @@ class ListingsPage extends React.Component {
       <section className="main-page">
         <Header logOut = {logOut} currentUser = {this.props.currentUser}/>
         <Nav favoritesLength= {favoritesLength}/>
-        <section className="container listings-container">
+        <section data-testid="listings-section" className="container listings-container">
           {listings.map(listing =>
             <ListingsCard
               id = {listing.listing_id}
