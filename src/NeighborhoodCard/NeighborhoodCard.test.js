@@ -40,7 +40,7 @@ describe('NeighborhoodCard', () => {
     const { getByText } = renderNeighborhoodCard()
     const listingsBtn = getByText('View Listings')
     fireEvent.click(listingsBtn)
-    expect(location.pathname).toBe(`/neighborhoods/12/listings`)
+    expect(location.pathname).toBe(`/listings/neighborhoods/12`)
   })
 
 
