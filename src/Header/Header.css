@@ -27,6 +27,7 @@ header p {
   flex-direction: column;
   justify-content: center;
   margin: 10px;
+  align-items: center;
 }
 
 .avatar-section button {
