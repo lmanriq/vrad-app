@@ -2,3 +2,9 @@
   width: 30%;
   margin: 2% 1%;
 }
+
+.listings-container p {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1em;
+}

@@ -13,6 +13,7 @@ class ListingsPage extends React.Component {
     this.controller = new AbortController()
     this.state = {
       listings: [],
+      page: null
     }
   }
 
@@ -20,7 +21,7 @@ class ListingsPage extends React.Component {
     const signal = this.controller.signal;
     const { listings } = this.state
     fetchAllListingsData(signal)
-      .then(data => this.setState({listings: [...listings, ...data.listings]}))
+      .then(data => this.setState({listings: [...listings, ...data.listings], page: 'listings'}))
       .then(wait => this.props.favorites && this.showFavorites())
       .catch(err => console.log(err.message))
   }
@@ -42,7 +43,7 @@ class ListingsPage extends React.Component {
     const { listings } = this.state
     const { favorites } = this.props
     const favListings = listings.filter(listing => favorites.includes(listing.listing_id))
-    this.setState({listings: [...favListings]})
+    this.setState({listings: [...favListings], page: 'favorites'})
   }
 
   componentWillUnmount() {
@@ -51,7 +52,6 @@ class ListingsPage extends React.Component {
 
   render() {
     const { listings } = this.state;
-    console.log(listings)
     const { checkIsFavorite, favoritesLength, handleFavorites, logOut } = this.props;
     const listingCards = listings.map(listing =>
             <ListingsCard
@@ -63,12 +63,14 @@ class ListingsPage extends React.Component {
               cost = {listing.details.cost_per_night}
             />
           );
+    const noFavs = this.state.page === 'favorites' && favoritesLength === 0;
 
     return (
       <section className="main-page">
         <Header logOut = {logOut} currentUser = {this.props.currentUser}/>
         <Nav favoritesLength= {favoritesLength}/>
         <section data-testid="listings-section" className="container listings-container">
+          {noFavs && <p>No favorites yet. Click a listing's heart icon to add it to your list.</p>}
           {listingCards}
         </section>
       </section>
