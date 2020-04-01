@@ -10,7 +10,7 @@ const NeighborhoodCard = ({ id, areaNickname, name, location, description }) => 
       <p>({name})</p>
       <h5>{location}</h5>
       <p>{description}</p>
-      <Link to={`neighborhoods/${id}/listings`}>
+      <Link to={`/listings/neighborhoods/${id}`}>
         <button type="button">View Listings</button>
       </Link>
     </article>
