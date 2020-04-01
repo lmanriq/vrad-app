@@ -74,6 +74,12 @@ button {
   cursor: pointer;
 }
 
+button:hover, 
+.active button {
+  background-color: #003019;
+  
+}
+
 .container {
   display: flex;
   grid-area: container;
