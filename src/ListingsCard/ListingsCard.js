@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import './ListingsCard.css';
 import { Link } from 'react-router-dom'
 
-function ListingsCard({ id, name, isFavorite, handleFavorites }) {
+function ListingsCard({ id, name, isFavorite, handleFavorites, cost }) {
   const imgSrc =`/images/${id}_b.jpg`
   return (
     <section className='listings-card card'>
       <h3>{name}</h3>
+      <h4>${cost}</h4>
       <img className='thumb-nail' src={imgSrc} alt={name}/>
       <div className='card-bottom'>
         <div className="favorite-checkbox">

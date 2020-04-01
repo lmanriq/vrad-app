@@ -50,23 +50,26 @@ class ListingsPage extends React.Component {
   }
 
   render() {
-    const { listings } = this.state
-    const { checkIsFavorite, favoritesLength, handleFavorites, logOut } = this.props
-
-    return (
-      <section className="main-page">
-        <Header logOut = {logOut} currentUser = {this.props.currentUser}/>
-        <Nav favoritesLength= {favoritesLength}/>
-        <section data-testid="listings-section" className="container listings-container">
-          {listings.map(listing =>
+    const { listings } = this.state;
+    console.log(listings)
+    const { checkIsFavorite, favoritesLength, handleFavorites, logOut } = this.props;
+    const listingCards = listings.map(listing =>
             <ListingsCard
               id = {listing.listing_id}
               name = {listing.name}
               handleFavorites = { handleFavorites }
               key = {listing.listing_id}
               isFavorite = { checkIsFavorite(listing.listing_id) }
+              cost = {listing.details.cost_per_night}
             />
-          )}
+          );
+
+    return (
+      <section className="main-page">
+        <Header logOut = {logOut} currentUser = {this.props.currentUser}/>
+        <Nav favoritesLength= {favoritesLength}/>
+        <section data-testid="listings-section" className="container listings-container">
+          {listingCards}
         </section>
       </section>
     )
