@@ -15,9 +15,7 @@ class LoginForm extends React.Component {
 
   componentDidMount() {
     if (window.localStorage.user) {
-      const userString = window.localStorage.getItem('user')
-      const user = JSON.parse(userString)
-      this.setState({...user})
+      window.location.pathname = '/neighborhoods'
     }
   }
 
