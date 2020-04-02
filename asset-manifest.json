@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/vrad-app/static/css/main.44561d65.chunk.css",
+    "main.js": "/vrad-app/static/js/main.c4cbc0ed.chunk.js",
+    "main.js.map": "/vrad-app/static/js/main.c4cbc0ed.chunk.js.map",
+    "runtime-main.js": "/vrad-app/static/js/runtime-main.d515b884.js",
+    "runtime-main.js.map": "/vrad-app/static/js/runtime-main.d515b884.js.map",
+    "static/js/2.751c36ff.chunk.js": "/vrad-app/static/js/2.751c36ff.chunk.js",
+    "static/js/2.751c36ff.chunk.js.map": "/vrad-app/static/js/2.751c36ff.chunk.js.map",
+    "index.html": "/vrad-app/index.html",
+    "precache-manifest.1b49f053d64ad1fd9870f2b0286db962.js": "/vrad-app/precache-manifest.1b49f053d64ad1fd9870f2b0286db962.js",
+    "service-worker.js": "/vrad-app/service-worker.js",
+    "static/css/main.44561d65.chunk.css.map": "/vrad-app/static/css/main.44561d65.chunk.css.map",
+    "static/js/2.751c36ff.chunk.js.LICENSE.txt": "/vrad-app/static/js/2.751c36ff.chunk.js.LICENSE.txt",
+    "static/media/ListingDetails.css": "/vrad-app/static/media/005-unchecked.d242ba2e.svg",
+    "static/media/logo.626ab9a7.svg": "/vrad-app/static/media/logo.626ab9a7.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d515b884.js",
+    "static/js/2.751c36ff.chunk.js",
+    "static/css/main.44561d65.chunk.css",
+    "static/js/main.c4cbc0ed.chunk.js"
+  ]
+}
