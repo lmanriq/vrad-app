@@ -13,7 +13,7 @@ const NeighborhoodCard = ({ id, areaNickname, name, location, description }) => 
         <p>{description}</p>
       </div>
       <Link to={`/listings/neighborhoods/${id}`}>
-        <button type="button">View Listings</button>
+        <button data-testid={`btn${id}`} type="button">View Listings</button>
       </Link>
     </article>
   )
