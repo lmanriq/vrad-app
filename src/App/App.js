@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {  Switch, Route } from 'react-router-dom'
 import LandingPage from './../LandingPage/LandingPage.js'
 import NeighborhoodsPage from './../NeighborhoodsPage/NeighborhoodsPage.js'
 import ListingsPage from './../ListingsPage/ListingsPage.js'
@@ -89,7 +89,6 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
         <div className="App">
           <Switch>
             <Route
@@ -166,7 +165,6 @@ class App extends React.Component {
             />
           </Switch>
         </div>
-      </Router>
     )};
 }
 
