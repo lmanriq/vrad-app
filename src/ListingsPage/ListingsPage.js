@@ -82,10 +82,8 @@ export default ListingsPage;
 
 ListingsPage.propTypes = {
   currentUser: PropTypes.object,
-  favoritesLength: PropTypes.number, 
+  favoritesLength: PropTypes.number,
   handleFavorites: PropTypes.func,
   checkIsFavorite: PropTypes.func,
   favorites: PropTypes.array
 }
-
-

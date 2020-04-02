@@ -17,7 +17,7 @@ const  { favoritesLength } = props
           <button>Listings</button>
         </NavLink>
         <NavLink to='/favorites'>
-          <button>Favorites <span className='fav-count'>{favoritesLength}</span></button>
+          <button>Favorites <span data-testid='fav-count' className='fav-count'>{favoritesLength}</span></button>
         </NavLink>
       </section>
     </nav>
