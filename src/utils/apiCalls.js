@@ -1,9 +1,9 @@
 export const fetchNeighborhoodData = (signal) => {
-  return fetch('http://localhost:3001/api/v1/areas', { signal })
+  return fetch('https://vrad-api.herokuapp.com/api/v1/areas', { signal })
     .then(response => response.json())
     .then(data => {
       const promises = data.areas.map(area => {
-        return fetch('http://localhost:3001' + area.details)
+        return fetch('https://vrad-api.herokuapp.com' + area.details)
           .then(response => response.json())
           .then(data => {
             return {
@@ -17,16 +17,16 @@ export const fetchNeighborhoodData = (signal) => {
 }
 
 export const fetchAllListingsData = (signal) => {
-  return fetch('http://localhost:3001/api/v1/listings', { signal })
+  return fetch('https://vrad-api.herokuapp.com/api/v1/listings', { signal })
       .then(res => res.json())
 }
 
 export const fetchAreaListingsData = (id, signal) => {
-  return fetch(`http://localhost:3001/api/v1/areas/${id}`, { signal })
+  return fetch(`https://vrad-api.herokuapp.com/api/v1/areas/${id}`, { signal })
       .then(res => res.json())
       .then(data => data.listings)
       .then(listings => {const promises = listings.map(listing => {
-        return fetch('http://localhost:3001' + listing)
+        return fetch('https://vrad-api.herokuapp.com' + listing)
                 .then(res => res.json())
           })
           return Promise.all(promises)
@@ -34,6 +34,6 @@ export const fetchAreaListingsData = (id, signal) => {
 }
 
 export const fetchListingDetailsData = (id, signal) => {
-  return fetch(`http://localhost:3001/api/v1/listings/${id}`, { signal })
+  return fetch(`https://vrad-api.herokuapp.com/api/v1/listings/${id}`, { signal })
       .then(res => res.json())
 }
