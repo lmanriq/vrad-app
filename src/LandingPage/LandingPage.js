@@ -13,6 +13,7 @@ function LandingPage({ updateUser, loadFavs }) {
           <Logo />
         </div>
         <h1>Welcome to Blucifinder</h1>
+        <h2>Book places to stay in Denver</h2>
         <LoginForm
           updateUser = { updateUser }
           loadFavs = { loadFavs }

@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom'
 const NeighborhoodCard = ({ id, areaNickname, name, location, description }) => {
   return (
     <article id={id} className="card neighborhood-card">
-      <h4>{areaNickname}</h4>
-      <p>({name})</p>
-      <h5>{location}</h5>
-      <p>{description}</p>
-      <Link to={`neighborhoods/${id}/listings`}>
+      <div>
+        <h4>{areaNickname}</h4>
+        <p>({name})</p>
+        <h5>{location}</h5>
+        <p>{description}</p>
+      </div>
+      <Link to={`/listings/neighborhoods/${id}`}>
         <button type="button">View Listings</button>
       </Link>
     </article>
