@@ -1,8 +1,3 @@
-/* White: #FFFFFF;
-Magic Mint: #9BF2C8;
-Illuminating Emerald: #309966;
-Cadmium Green: #0D663B;
-Dark Green: #003019; */
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -10,6 +5,10 @@ Dark Green: #003019; */
   justify-content: center;
   height: 100%;
   color: #003019;
+  background-image: url('/images/blucifer.jpg');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .landing-page h1 {
@@ -25,10 +24,12 @@ Dark Green: #003019; */
 }
 
 .container-landing {
+  height: 80%;
   width: 55%;
   padding: 1% 2% 10%;
   border-radius: 30px;
-  background-color: #9BF2C8;
+  background-color:rgba(155, 242, 200, 0.8);;
+  text-align: center;
 }
 
 @media only screen and (max-width: 875px) {

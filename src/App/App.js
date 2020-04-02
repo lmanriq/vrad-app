@@ -93,7 +93,7 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route
-              path="/neighborhoods/:id/listings"
+              path="/listings/neighborhoods/:id"
               component={({ match }) => {
                 const { params } = match;
                 return <ListingsPage
