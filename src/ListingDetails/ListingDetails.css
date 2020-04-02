@@ -14,11 +14,11 @@
 
 .details-header {
   display: flex;
-  z-index: -1;
   position: relative;
   justify-content: center;
-  height: 20%;
+  height: 25%;
   background-color: #309966;
+  width: 100%;
 }
 
 .favorite-checkbox {
