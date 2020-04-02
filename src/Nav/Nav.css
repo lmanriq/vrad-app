@@ -8,6 +8,7 @@ nav {
   margin-top: 8em;
   padding: 0.7em;
   background-color: #9BF2C8;
+  z-index: 2;
 }
 
 nav h3 {
