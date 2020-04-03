@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4c9e522742cc54c0cc09016f3c6cd77e",
+    "revision": "467adea71a5ca74f53872583302e7f8f",
     "url": "/vrad-app/index.html"
   },
   {
-    "revision": "443121e43bb0c826f1cd",
+    "revision": "7d4175042d900f75508b",
     "url": "/vrad-app/static/css/main.44561d65.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vrad-app/static/js/2.751c36ff.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "443121e43bb0c826f1cd",
-    "url": "/vrad-app/static/js/main.c4cbc0ed.chunk.js"
+    "revision": "7d4175042d900f75508b",
+    "url": "/vrad-app/static/js/main.f8560cde.chunk.js"
   },
   {
     "revision": "b55331e1616f6f4be9c5",
